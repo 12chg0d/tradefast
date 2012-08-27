@@ -47,5 +47,10 @@ public class HomeController {
     	logger.info("Accessing protected resource");
     	return new Message(100, "Congratulations!", "You have accessed a Basic Auth protected resource.");
     }
+    @RequestMapping(value = "/getprofile", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody Member getProfile() {
+    	return new Member("Ranatchai","Chernbamrung","2/427","086-782-8889","12chg0d@gmail.com");
+}
+   
 
 }
