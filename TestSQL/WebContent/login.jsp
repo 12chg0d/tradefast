@@ -27,10 +27,7 @@
 
   <body>
 	<!-- It will receive the username and password here and then send it to loginbean.jsp -->
-    <form action="loginbean.jsp" class="uniForm" method="post">
-      <div class="header">
-        
-      </div>      
+    <form action="loginbean.jsp" class="uniForm" method="post">    
       	<% String isHas = (String)session.getAttribute("isHas");
       		if(isHas != null && isHas.equalsIgnoreCase("no")){	
       	%>
@@ -62,8 +59,8 @@
       </fieldset>
       
       <div class="buttonHolder">
-		<a href="register.jsp" class="secondaryAction">Create a new one.</a>
-        <button type="submit" class="primaryAction">Login!</button>
+		<a href="register.jsp" class="secondaryAction">สมัครสมาชิกใหม่</a>
+        <button type="submit" class="primaryAction">เข้าสู่ระบบ</button>
       </div>
     </form>
 

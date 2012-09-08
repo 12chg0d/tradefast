@@ -28,14 +28,14 @@
     <form action="RegistrationController" class="uniForm" method="post">
             
       <fieldset>
-        <h3>Hi, new member.</h3>
+        <h3>ยินดีต้อนรับ สมาชิกใหม่</h3>
         
         <div class="ctrlHolder">
           <ul>
 	          <li><label for=""><em>*</em> Name</label>
-	          	<input name="name" id="name" data-default-value="Name" size="35" maxlength="50" type="text" class="textInput required"/><li>
+	          	<input name="name" id="name" data-default-value="ชื่อ" size="35" maxlength="50" type="text" class="textInput required"/><li>
 	          <li><label for=""><em>*</em> Surname</label>
-	          	<input name="name" id="surName" data-default-value="Surname" size="35" maxlength="50" type="text" class="textInput required"/></li>
+	          	<input name="name" id="surName" data-default-value="นามสกุล" size="35" maxlength="50" type="text" class="textInput required"/></li>
           </ul>	
         </div>
         
@@ -53,7 +53,7 @@
       </fieldset>
       
       <div class="buttonHolder">
-        <button type="submit" class="primaryAction">Finished!</button>
+        <button type="submit" class="primaryAction">สมัครสมาชิก</button>
       </div>
 
     </form>

@@ -38,7 +38,7 @@
     
     .uniForm .inlineLabels .noLabel{}
     
-    .uniForm .buttonHolder{ background: #efefef; text-align: right; margin: 1.5em 0 0 0; padding: 1.5em;
+    .uniForm .buttonHolder{ background: #2d2d2d; text-align: right; margin: 1.5em 0 0 0; padding: 1.5em;
                             /* CSS3 */
                             border-radius:         4px;
                             -webkit-border-radius: 4px;
@@ -46,21 +46,21 @@
                             -o-border-radius:      4px;
                             -khtml-border-radius:  4px;
                           }
-      .uniForm .buttonHolder .primaryAction{ padding: 10px 22px; line-height: 1; background: #254a86; border: 1px solid #163362; font-size: 12px; font-weight: bold; color: #fff;
+      .uniForm .buttonHolder .primaryAction{ padding: 10px 22px; line-height: 1; background: #ffe900; border: 1px solid #163362; font-size: 12px; font-weight: bold; color: #000;
                                              /* CSS3 */
                                              border-radius:         4px;
                                              -webkit-border-radius: 4px;
                                              -moz-border-radius:    4px;
                                              -o-border-radius:      4px;
                                              -khtml-border-radius:  4px;
-                                             box-shadow: 1px 1px 0 #fff;
-                                             -webkit-box-shadow: 1px 1px 0 #fff;
-                                             -moz-box-shadow: 1px 1px 0 #fff;
+                                             box-shadow: 1px 1px 0 #000;
+                                             -webkit-box-shadow: 1px 1px 0 #000;
+                                             -moz-box-shadow: 1px 1px 0 #000;
                                              text-shadow: -1px -1px 0 rgba(0,0,0,.25);
                                            }
       .uniForm .buttonHolder .primaryAction:active{ position: relative; top: 1px; }
-      .uniForm .secondaryAction            { text-align: left; }
-      .uniForm button.secondaryAction      { background: transparent; border: none; color: #777; margin: 1.25em 0 0 0; padding: 0; }
+      .uniForm .secondaryAction            { text-align: left; color : #ffe900;}
+      .uniForm button.secondaryAction      { background: transparent; border: none; color: #fff; margin: 1.25em 0 0 0; padding: 0; }
       
         .uniForm .inlineLabels label em,
         .uniForm .inlineLabels .label em{ font-style: normal; font-weight: bold; }
