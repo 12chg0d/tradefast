@@ -10,9 +10,11 @@
     and “LoginBean”. This page also check the parameter “isHas” in order to show the error message. 
     This page will call “LoginController” to check username and password from database 
     and create “UserBean” to throw the user’s data to other pages. -->
-    <link href="./css/uni-form.css" media="screen" rel="stylesheet"/>
-    <link href="./css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
-    <link href="./css/demo.css" media="screen" rel="stylesheet"/>
+	<link href="./css/uni-form.css" media="screen" rel="stylesheet"/>
+	<link href="./css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
+	<link href="./css/demo.css" media="screen" rel="stylesheet"/>
+	
+
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -27,8 +29,7 @@
 	<!-- It will receive the username and password here and then send it to loginbean.jsp -->
     <form action="loginbean.jsp" class="uniForm" method="post">
       <div class="header">
-        <h2>Welcome to ADDBUGRED project.</h2>
-        <p>Infosys Labs</p>
+        
       </div>      
       	<% String isHas = (String)session.getAttribute("isHas");
       		if(isHas != null && isHas.equalsIgnoreCase("no")){	
@@ -47,9 +48,9 @@
 	      %>
 	    <fieldset>
         <div class="ctrlHolder">
-          <label for=""><em>*</em> Project Name</label>
-          <input name="userName" id="userName" data-default-value="Project Name" size="35" maxlength="50" type="text" class="textInput required"/>
-          <p class="formHint">Enter your project name.</p>
+          <label for=""><em>*</em> Username</label>
+          <input name="userName" id="userName" data-default-value="Username" size="35" maxlength="50" type="text" class="textInput required"/>
+          <p class="formHint">Enter your username.</p>
         </div>
         
         <div class="ctrlHolder">

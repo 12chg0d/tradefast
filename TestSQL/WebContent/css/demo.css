@@ -1,4 +1,4 @@
-html{ color: #343434; background: #bcc2c6; font-size: 14px; line-height: 1.5; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif; }
+html{ color: #343434; background: #ffe900; font-size: 14px; line-height: 1.5; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif; }
 body{}
   
 a:link,
@@ -13,7 +13,7 @@ h1,h2,h3,ul,ol,p{ margin: 1.5em 0; }
 h1{ margin: 42px auto 28px auto; width: 284px; }
 h2{ font-size: 1.25em; }
 .uniForm h2{ margin: 1em 0 1em 1.15em; }
-fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background: #efefef; color: #343434; }
+fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background: #ffe900; color: #343434; }
 
 .uniForm{ width: 55%; background: #fff; margin: 28px auto; padding: 28px;
           /* CSS3 */
@@ -24,7 +24,7 @@ fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background
           -khtml-border-radius:  12px;
         }
   
-  .header{ margin: -28px -28px 28px -28px; padding: 1px 28px; background: #efefef; border-bottom: 1px solid #dfdfdf; position: relative;
+  .header{ margin: -28px -28px 28px -28px; padding: 1px 28px; position: relative;
            /* CSS3 */
            border-top-left-radius:          10px;
            border-top-right-radius:         10px;
