@@ -37,6 +37,19 @@ public class HomeController {
 		
 		return "home";
 	}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		return "login";
+	}
+	@RequestMapping(value = "/loginbean", method = RequestMethod.GET)
+	public String loginbean(Locale locale, Model model) {
+		return "loginbean";
+	}
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Locale locale, Model model) {
+		return "register";
+	}
+	
 	@RequestMapping(value = "/getprofile", method = RequestMethod.GET, produces = "application/json")
 	    public @ResponseBody Member getProfile() {
 	    	return new Member("Ranatchai","Chernbamrung","2/427","086-782-8889","12chg0d@gmail.com");

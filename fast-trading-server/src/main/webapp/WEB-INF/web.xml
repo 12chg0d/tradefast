@@ -20,4 +20,20 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>servlet.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RegistrationController</servlet-name>
+    <servlet-class>servlet.RegistrationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrationController</servlet-name>
+    <url-pattern>/RegistrationController</url-pattern>
+  </servlet-mapping>
 </web-app>
