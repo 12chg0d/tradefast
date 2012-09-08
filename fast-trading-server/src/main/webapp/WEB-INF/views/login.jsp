@@ -1,8 +1,5 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <c:url value="/resources" var="resourcesUrl"/>
-    
 <!doctype html>
 <html lang="en-us" dir="ltr">
   <head>
@@ -13,9 +10,11 @@
     and “LoginBean”. This page also check the parameter “isHas” in order to show the error message. 
     This page will call “LoginController” to check username and password from database 
     and create “UserBean” to throw the user’s data to other pages. -->
-    <link href="${resourcesUrl}/css/uni-form.css" media="screen" rel="stylesheet"/>
-    <link href="${resourcesUrl}/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
-    <link href="${resourcesUrl}/css/demo.css" media="screen" rel="stylesheet"/>
+	<link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
+	<link href="resources/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
+	<link href="resources/css/demo.css" media="screen" rel="stylesheet"/>
+	
+
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -27,12 +26,8 @@
   </head>
 
   <body>
-	<!-- It will receive the username and password here and then send it to loginbeans -->
-    <form action="loginbean" class="uniForm" method="post">
-      <div class="header">
-        <h2>Welcome to ADDBUGRED project.</h2>
-        <p>Infosys Labs</p>
-      </div>      
+	<!-- It will receive the username and password here and then send it to loginbean -->
+    <form action="loginbean" class="uniForm" method="post">    
       	<% String isHas = (String)session.getAttribute("isHas");
       		if(isHas != null && isHas.equalsIgnoreCase("no")){	
       	%>
@@ -50,9 +45,9 @@
 	      %>
 	    <fieldset>
         <div class="ctrlHolder">
-          <label for=""><em>*</em> Project Name</label>
-          <input name="userName" id="userName" data-default-value="Project Name" size="35" maxlength="50" type="text" class="textInput required"/>
-          <p class="formHint">Enter your project name.</p>
+          <label for=""><em>*</em> Username</label>
+          <input name="userName" id="userName" data-default-value="Username" size="35" maxlength="50" type="text" class="textInput required"/>
+          <p class="formHint">Enter your username.</p>
         </div>
         
         <div class="ctrlHolder">
@@ -64,8 +59,8 @@
       </fieldset>
       
       <div class="buttonHolder">
-		<a href="register" class="secondaryAction">Create a new one.</a>
-        <button type="submit" class="primaryAction">Login!</button>
+		<a href="register" class="secondaryAction">สมัครสมาชิกใหม่</a>
+        <button type="submit" class="primaryAction">เข้าสู่ระบบ</button>
       </div>
     </form>
 
@@ -73,7 +68,7 @@
     </div>
 	<!-- JavaScript and JQuery part -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="${resourcesUrl}/js/uni-form-validation.jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="resources/js/uni-form-validation.jquery.js" charset="utf-8"></script>
     <script>
       $(function(){
         $('form.uniForm').uniform({

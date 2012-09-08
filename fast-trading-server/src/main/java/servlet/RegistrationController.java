@@ -27,8 +27,17 @@ public class RegistrationController extends HttpServlet{
 			PrintWriter out = response.getWriter();
 			//Getting the parameters from registration page.
 			//For validations, I use jQuery for this purposes. 
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			//String sex = request.getParameter("sex");
+			//String birthDate = request.getParameter("birthDate");
+			//String age = request.getParameter("Age");
+			String address = request.getParameter("address");
+			String email = request.getParameter("email");
+			String telNo = request.getParameter("telNo");
 			String userName = request.getParameter("userName");
 			String password = request.getParameter("password");
+			//เหลือ time stamp เรื่องราว การเพิ่มของ ID
 			try {
 				//Setting the connection in database by using prepared statement.
 				Class.forName("org.gjt.mm.mysql.Driver");
@@ -36,11 +45,16 @@ public class RegistrationController extends HttpServlet{
 				.getConnection("jdbc:mysql://localhost/user_register?"
 						+ "user=sqluser&password=sqluserpw");
 				//Creating the row which has the username and password by using sql symbol "insert".
-				String sql = "insert into userregister values (?,?,default, default, default, default)";
+				String sql = "insert into userregister values (?,?,?,?,?,?,MD5(?))";
 				PreparedStatement pst = conn.prepareStatement(sql);
 				//Using preparedstatement by set the parameter related to "?" symbol.
-				pst.setString(1, userName);
-				pst.setString(2, password);
+				pst.setString(1, firstName);
+				pst.setString(2, lastName);
+				pst.setString(3, address);
+				pst.setString(4, email);
+				pst.setString(5, telNo);
+				pst.setString(6, userName);
+				pst.setString(7, password);
 				pst.executeUpdate();
 				pst.close();
 			}
@@ -61,9 +75,14 @@ public class RegistrationController extends HttpServlet{
 					if (conn != null) conn.close();
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					UserBean ub = new UserBean();
-					ub.setUsername(userName);
+					ub.setAddress(address);
+					ub.setFirstName(firstName);
+					ub.setLastName(lastName);
+					ub.setTelNo(telNo);
+					ub.setEmail(email);
+					ub.setUserName(userName);
 					session.setAttribute("user", ub);
-					response.sendRedirect("welcome.jsp");
+					response.sendRedirect("welcome");
 				}
 				catch (SQLException ignored){
 					out.println(ignored);
