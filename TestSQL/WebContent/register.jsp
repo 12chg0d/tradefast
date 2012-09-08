@@ -31,23 +31,33 @@
         <h3>ยินดีต้อนรับ สมาชิกใหม่</h3>
         
         <div class="ctrlHolder">
-          <ul>
-	          <li><label for=""><em>*</em> Name</label>
-	          	<input name="name" id="name" data-default-value="ชื่อ" size="35" maxlength="50" type="text" class="textInput required"/><li>
-	          <li><label for=""><em>*</em> Surname</label>
-	          	<input name="name" id="surName" data-default-value="นามสกุล" size="35" maxlength="50" type="text" class="textInput required"/></li>
-          </ul>	
+	          <label for=""><em>*</em> Name</label>
+	          	<input name="name" id="name" data-default-value="ชื่อ" size="35" maxlength="50" type="text" class="textInput required"/>
+	    	<p class="formHint"></p>
+	    </div>
+	    <div class="ctrlHolder">
+	    
+	          <label for=""><em>*</em> Surname</label>
+	          	<input name="name" id="surName" data-default-value="นามสกุล" size="35" maxlength="50" type="text" class="textInput required"/>
+        		<p class="formHint"></p>
         </div>
-        
+        <div id="line"> </div>
         <div class="ctrlHolder">
-          <ul>
-	          <li><label for=""><em>*</em> User Name</label>
-	         	<input name="userName" id="userName" data-default-value="User Name" size="35" maxlength="50" type="text" class="textInput required"/></li>
-	          <li><label for=""><em>*</em> Password</label>
-	          	<input name="password" id="password" data-default-value="password" size="35" maxlength="50" type="password" class="textInput required"/></li>
-	      	  <li><label for=""><em>*</em> Confirm Password</label>
-          		<input name="password_confirm" id="password_confirm" data-default-value="password" size="35" maxlength="50" type="password" class="textInput required validateSameAs password"/></li>
-	      </ul>
+          
+	          <label for=""><em>*</em> User Name</label>
+	         	<input name="userName" id="userName" data-default-value="User Name" size="35" maxlength="50" type="text" class="textInput required"/>
+	          <p class="formHint"></p>
+	    </div>
+	    <div class="ctrlHolder">
+	          <label for=""><em>*</em> Password</label>
+	     		<input name="password" id="password" data-default-value="password" size="35" maxlength="50" type="password" class="textInput required"/>
+	      	  <p class="formHint"></p>
+	      	  
+	      	 </div> 
+	      	  <div class="ctrlHolder">
+	      	  <label for=""><em>*</em> Confirm Password</label>
+          		<input name="password_confirm" id="password_confirm" data-default-value="password" size="35" maxlength="50" type="password" class="textInput required validateSameAs password"/>
+	     	 <p class="formHint"></p>
          </div>
         
       </fieldset>
