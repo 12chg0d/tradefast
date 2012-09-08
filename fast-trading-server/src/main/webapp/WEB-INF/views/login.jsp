@@ -1,5 +1,8 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <c:url value="/resources" var="resourcesUrl"/>
+    
 <!doctype html>
 <html lang="en-us" dir="ltr">
   <head>
@@ -10,9 +13,9 @@
     and “LoginBean”. This page also check the parameter “isHas” in order to show the error message. 
     This page will call “LoginController” to check username and password from database 
     and create “UserBean” to throw the user’s data to other pages. -->
-    <link href="/css/uni-form.css" media="screen" rel="stylesheet"/>
-    <link href="/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
-    <link href="/css/demo.css" media="screen" rel="stylesheet"/>
+    <link href="${resourcesUrl}/css/uni-form.css" media="screen" rel="stylesheet"/>
+    <link href="${resourcesUrl}/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
+    <link href="${resourcesUrl}/css/demo.css" media="screen" rel="stylesheet"/>
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -70,7 +73,7 @@
     </div>
 	<!-- JavaScript and JQuery part -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/uni-form-validation.jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="${resourcesUrl}/js/uni-form-validation.jquery.js" charset="utf-8"></script>
     <script>
       $(function(){
         $('form.uniForm').uniform({
