@@ -25,9 +25,41 @@
   </head>
 
   <body>
+  	<!-- header -->
+  	<div id="header_wrapper">
+  		<img id="logo" src="resources/img/logo_icon.png"/>
+  		<ul>
+  			<li><a href="welcome">HOME</a></li>
+  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="faq">FAQ</a></li>
+  		</ul>
+  	
+  		
+  		<div id="right_menu">
+  			<a href="account"><img src="resources/img/account_icon.png" height = "50"/></a>
+  			<a href="cart"><img src="resources/img/cart_icon.png" height = "50"/></a>
+  			<a href="login"><img src="resources/img/login_icon.png" height = "50"/></a>
+  		</div>
+  		
+  	</div>
+  	
+	<!--end of header -->
 	<!-- This part will receive the data from user and then send it to RegisterCotroller. -->
     <form action="RegistrationController" class="uniForm" method="post">
-            
+      <% String dup = (String)session.getAttribute("dup");
+      		if(dup != null && dup.equalsIgnoreCase("no")){	
+      	%>
+	        <div id="errorMsg">
+	        <h4>มี username ดังกล่าวแล้วในระบบ</h4>
+	          <ol>
+	            <li>ลองเลือก  username ใหม่จ้า.</li>
+	          </ol>
+	      	</div>
+	      	
+	      <% 
+      	  		session.setAttribute("dup", null);  	
+      		}
+	      %>      
       <fieldset>
         <h3>Hi, new member.</h3>
         

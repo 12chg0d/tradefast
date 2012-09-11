@@ -27,7 +27,7 @@
 /* #############################   GENERALS   ################################### */
 /* ------------------------------------------------------------------------------ */
 
-.uniForm{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
+.uniForm{ margin:0; padding: 0; z-index: 1; } /* reset stuff */
   
   /* Some generals and more resets */
   .uniForm fieldset{ border: none; margin: 0; padding: 0; }
@@ -137,7 +137,7 @@
     
       .uniForm .secondaryAction{ float: left; }
       
-      /* .inlineLabel is used for inputs within labels - checkboxes and radio buttons */
+      /* .inlineL	abel is used for inputs within labels - checkboxes and radio buttons */
       .uniForm .inlineLabel input,
       .uniForm .inlineLabels .inlineLabel input,
       .uniForm .blockLabels .inlineLabel input,

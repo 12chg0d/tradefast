@@ -33,8 +33,8 @@
     
     .uniForm legend{ font-weight: bold; font-size: 100%; margin: 0; padding: 1.5em 0; }
   
-    .uniForm .ctrlHolder{ padding: 1em; border-bottom: 1px solid #efefef; }
-    .uniForm .ctrlHolder.focused{ background: #fffcdf; }
+    .uniForm .ctrlHolder{ padding: 1em;  }
+    .uniForm .ctrlHolder.focused{ background: #ffe900; }
     
     .uniForm .inlineLabels .noLabel{}
     
@@ -97,7 +97,7 @@
 /* ----------------------------------------------------------------------------- */
 
   /* Error message at the top of the form */
-  .uniForm #errorMsg{ background: #ffdfdf; border: 1px solid #f3afb5; margin: 0 0 1.5em 0; padding: 0 1.5em;
+  .uniForm #errorMsg{ background: #ff4370; margin: 0 0 1.5em 0; padding: 0 1.5em;
                       /* CSS3 */
                       border-radius:         4px;
                       -webkit-border-radius: 4px;
@@ -107,7 +107,7 @@
                     }
     .uniForm #errorMsg h3{} /* Feel free to use a heading level suitable to your page structure */
     .uniForm #errorMsg ol{ margin: 0 0 1.5em 0; padding: 0; }
-      .uniForm #errorMsg ol li{ margin: 0 0 3px 1.5em; padding: 7px; background: #f6bec1; position: relative; font-size: .85em;
+      .uniForm #errorMsg ol li{ margin: 0 0 3px 1.5em; padding: 7px; background: #ff4370; position: relative; font-size: .85em;
                                 /* CSS3 */
                                 border-radius:         4px;
                                 -webkit-border-radius: 4px;
@@ -117,7 +117,7 @@
                               }
   
   .uniForm .ctrlHolder.error,
-  .uniForm .ctrlHolder.focused.error{ background: #ffdfdf; border: 1px solid #f3afb5;
+  .uniForm .ctrlHolder.focused.error{ background: #ff4370;
                                       /* CSS3 */
                                       border-radius:         4px;
                                       -webkit-border-radius: 4px;
@@ -130,7 +130,7 @@
     .uniForm .ctrlHolder.error textarea.error{ color: #af4c4c; margin: 0 0 6px 0; padding: 4px; }
   
   /* Success messages at the top of the form */
-  .uniForm #okMsg{ background: #c8ffbf; border: 1px solid #a2ef95; margin: 0 0 1.5em 0; padding: 1.5em; text-align: center;
+  .uniForm #okMsg{ background: #5fdd2e; margin: 0 0 1.5em 0; padding: 1.5em; text-align: center;
                    /* CSS3 */
                    border-radius:         4px;
                    -webkit-border-radius: 4px;

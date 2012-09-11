@@ -2,9 +2,9 @@ html{ color: #fff; background: #ffe900; font-size: 14px; line-height: 1.5; font-
 body{}
   
 a:link,
-a:visited{ text-decoration: none; color: #254a86; }
+a:visited{ text-decoration: none;  }
 a:hover,
-a:focus  { text-decoration: underline; }
+a:focus  {  }
 
 a img { border: none; }
 
@@ -16,7 +16,7 @@ h2{ font-size: 1.25em; }
 fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background: #2d2d2d; color: #fff; }
 
 
-.uniForm{ width: 55%; background: #2d2d2d; margin: 28px auto; padding: 28px;
+.uniForm{ width: 40%; background: #2d2d2d; margin: 100px auto; padding: 28px;
           /* CSS3 */
           border-radius:         12px;
           -webkit-border-radius: 12px;

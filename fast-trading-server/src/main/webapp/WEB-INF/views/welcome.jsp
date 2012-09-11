@@ -13,6 +13,7 @@
     <link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
     <link href="resources/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
     <link href="resources/css/demo.css" media="screen" rel="stylesheet"/>
+    <link href="resources/css/header_style.css" media="screen" rel="stylesheet"/>
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -24,11 +25,32 @@
   </head>
 
   <body>
+  
+  <!-- header -->
+  	<div id="header_wrapper">
+  		<img id="logo" src="resources/img/logo_icon.png"/>
+  		<ul>
+  			<li><a href="welcome">HOME</a></li>
+  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="faq">FAQ</a></li>
+  		</ul>
+  	
+  		
+  		<div id="right_menu">
+  			<a href="account"><img src="resources/img/account_icon.png" height = "50"/></a>
+  			<a href="cart"><img src="resources/img/cart_icon.png" height = "50"/></a>
+  			<a href="login"><img src="resources/img/login_icon.png" height = "50"/></a>
+  		</div>
+  		
+  	</div>
+  	
+	<!--end of header -->
  	<%
  		//There are two cases. The first is "You have never indexed any document.", it will not show the "Go to search page" button.
  		//Another case is "You have ever indexed some documents.", it will show the "Go to search page" button.
 		UserBean ub = (UserBean)session.getAttribute("user");
 		if(ub != null) {
+			System.out.print(ub.getFirstName());
 	%>
 		<form class="uniForm">
 			<div class="header">

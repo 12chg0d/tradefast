@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet{
 			HttpSession session = request.getSession(true);
 			UserBean ub = new UserBean();	
 			response.setContentType("text/html");
+			request.setCharacterEncoding("UTF-8");
 			//Creating the parameters which will be used later.
 			//Connection
 			Connection conn = null;
@@ -48,7 +49,7 @@ public class LoginController extends HttpServlet{
 								+ "user=root");*/
 				conn = DriverManager
 						.getConnection("jdbc:mysql://localhost/user_register?"
-								+ "user=sqluser&password=sqluserpw");
+								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
 				//Getting the parameters from login page.
 				//Actually, this condition is done by using JQuery.
 				if(request.getParameter("username")!=null &&

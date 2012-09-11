@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!doctype html>
-<html lang="en-us" dir="ltr">
+<html lang="th" dir="ltr">
   <head>
   <meta charset="utf-8">
     <title>Login Page</title>
@@ -13,7 +13,7 @@
 	<link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
 	<link href="resources/css/demo.css" media="screen" rel="stylesheet"/>
-	
+	<link href="resources/css/header_style.css" media="screen" rel="stylesheet"/>
 
     
     <!--[if lte ie 7]>
@@ -26,6 +26,27 @@
   </head>
 
   <body>
+  	<!-- header -->
+  	<div id="header_wrapper">
+  		<img id="logo" src="resources/img/logo_icon.png"/>
+  		<ul>
+  			<li><a href="welcome">HOME</a></li>
+  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="faq">FAQ</a></li>
+  		</ul>
+  	
+  		
+  		<div id="right_menu">
+  			<a href="account"><img src="resources/img/account_icon.png" height = "50"/></a>
+  			<a href="cart"><img src="resources/img/cart_icon.png" height = "50"/></a>
+  			<a href="login"><img src="resources/img/login_icon.png" height = "50"/></a>
+  		</div>
+  		
+  	</div>
+  	
+	<!--end of header -->
+	
+	
 	<!-- It will receive the username and password here and then send it to loginbean -->
     <form action="loginbean" class="uniForm" method="post">    
       	<% String isHas = (String)session.getAttribute("isHas");
