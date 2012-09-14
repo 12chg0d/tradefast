@@ -29,6 +29,39 @@
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>TableController</servlet-name>
+    <servlet-class>servlet.TableController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TableController</servlet-name>
+    <url-pattern>/TableController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SetStatusController</servlet-name>
+    <servlet-class>servlet.SetStatusController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetStatusController</servlet-name>
+    <url-pattern>/SetStatusController</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>servlet.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/LogoutController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>servlet.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/SearchController</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>RegistrationController</servlet-name>
     <servlet-class>servlet.RegistrationController</servlet-class>
   </servlet>

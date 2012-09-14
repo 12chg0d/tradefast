@@ -1,19 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="bean.*" %>
+<%@ page import="java.util.ArrayList" %><!-- Test -->
 <!doctype html>
 <html lang="th" dir="ltr">
   <head>
   <meta charset="utf-8">
-    <title>Login Page</title>
-    <!-- This page is about authentication page. 
-    It will receive username and password from the user and then it will forward to “welcome” page by using “loginbean” 
-    and “LoginBean”. This page also check the parameter “isHas” in order to show the error message. 
-    This page will call “LoginController” to check username and password from database 
-    and create “UserBean” to throw the user’s data to other pages. -->
-	<link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
+    <title>Search Page</title>
+    <link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
 	<link href="resources/css/demo.css" media="screen" rel="stylesheet"/>
+	<link href="resources/css/style.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/header_style.css" media="screen" rel="stylesheet"/>
 
     
@@ -57,42 +54,92 @@
 	
 	
 	<!-- It will receive the username and password here and then send it to loginbean -->
-    <form action="loginbean" class="uniForm" method="post">    
-      	<% String isHas = (String)session.getAttribute("isHas");
-      		if(isHas != null && isHas.equalsIgnoreCase("no")){	
-      	%>
-	        <div id="errorMsg">
-	        <h4>The username and/or password you supplied was not correct.</h4>
-	          <ol>
-	            <li>Try again.</li>
-	            <li>Click "Create a new one.":)</li>
-	          </ol>
-	      	</div>
-	      	
-	      <% 
-      	  		session.setAttribute("isHas", null);  	
-      		}
-	      %>
-	    <fieldset>
+    <form action="SearchController" class="uniForm" method="post">    
+	  <fieldset>
         <div class="ctrlHolder">
-          <label for=""><em>*</em> Username</label>
-          <input name="userName" id="userName" data-default-value="Username" size="35" maxlength="50" type="text" class="textInput required"/>
-          <p class="formHint">Enter your username.</p>
+          <label for=""><em>*</em>Item Name</label>
+          <input name="itemName" id="itemName" data-default-value="Item Name" size="35" maxlength="100" type="text" class="textInput required"/>
+          <p class="formHint"></p>
         </div>
-        
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Password</label>
-          <input name="password" id="password" data-default-value="password" size="35" maxlength="50" type="password" class="textInput required"/>
-          <p class="formHint">Enter your password.</p>
-        </div>
-
       </fieldset>
       
       <div class="buttonHolder">
-		<a href="register" class="secondaryAction">สมัครสมาชิกใหม่</a>
-        <button type="submit" class="primaryAction">เข้าสู่ระบบ</button>
+		<button type="submit" class="primaryAction">ค้นหา</button>
       </div>
     </form>
+
+	
+	<%
+	SearchBean sb = (SearchBean)session.getAttribute("searchResult");
+    String haveTableS = (String)session.getAttribute("haveTableS");
+	if(sb != null) {
+		ArrayList<String[]> arr = sb.getArr();	
+		int size = arr.size();
+		String[] str = new String[2];
+		if(arr != null && size > 0) {
+				
+	%>
+	<div class="center">
+	<table id="newspaper-a" summary="test-table">
+	   <colgroup>
+	    	<col class="oce-first" />
+	    </colgroup>
+	    <thead>
+	    	<tr>
+	        	<th scope="col" align= "center" >Search Result</th>
+	        </tr>
+	    </thead>
+	    </table>
+	    
+	    <table id="newspaper-a" summary="test-table">
+	   <colgroup>
+	    	<col class="oce-first" />
+	    </colgroup>
+	    <thead>
+	    	<tr>
+				<th scope="col">ID</th>        	
+				<th scope="col">Name</th>
+	        </tr>
+	    </thead>
+	<%
+				for(int i = 0; i < size; i++) {
+	%>
+		<tbody>
+	    	<tr>
+	<%
+					str = arr.get(i);
+	%>
+	        	<td><%=str[0] %></td>
+	        	<td><%=str[1] %></td>
+	<%				
+					}
+	%>
+	        </tr>
+	    </tbody>
+	    </table>
+	    </div>
+	<%
+		}
+	}
+	else if(haveTableS != null && haveTableS.equalsIgnoreCase("no")) {
+	%>
+			<div class="center">
+			<table id="newspaper-a" summary="test-table">
+			   <colgroup>
+			    	<col class="oce-first" />
+			    </colgroup>
+			    <thead>
+			    	<tr>
+			        	<th scope="col" align= "center" >This item does not exist!</th>
+			        </tr>
+			    </thead>
+			    </table>
+			 </div>
+	<%			
+		}
+	session.setAttribute("haveTableS", null);
+	session.setAttribute("searchResult", null );
+	%>	
 
     <div id="footer">
     </div>

@@ -60,4 +60,12 @@ public class HomeController {
 	    public @ResponseBody Member getProfile() {
 	    	return new Member("Ranatchai","Chernbamrung","2/427","086-782-8889","12chg0d@gmail.com");
 	}
+	@RequestMapping(value = "/catalog", method = RequestMethod.GET)
+	public String catalog( Model model) {
+		return "catalog";
+	}
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String search( Model model) {
+		return "search";
+	}
 }

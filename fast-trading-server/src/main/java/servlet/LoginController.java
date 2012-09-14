@@ -17,8 +17,6 @@ import java.sql.*;
  * It's all about JDBC(SQL) stuff.
  * Version 0.9.0 by Phoonlarp :)  
  */
-@Controller
-@RequestMapping(value = "/LoginController", method = RequestMethod.GET)
 public class LoginController extends HttpServlet{ 
 
 	
