@@ -61,7 +61,7 @@ public class HomeController extends HttpServlet{
 					str = new String[7];
 				}
 				hb.setArrForNew(arr);			
-				strQuery="select iID, Iname, price_money_only, price_point_only, price_point_couple, price_money_couple, picture  from item order by order_amount desc limit 4";
+				strQuery="select iID, Iname, price_money_only, price_point_only, price_point_couple, price_money_couple, picture  from item order by purchase_count desc limit 4";
 				//JDBC methods!
 				rs = st.executeQuery(strQuery);
 				ArrayList<String[]> arr2 = new ArrayList<String[]>();
@@ -79,8 +79,6 @@ public class HomeController extends HttpServlet{
 					str = new String[7];
 				}
 				hb.setArrForPop(arr2);
-				String p = request.getParameter("pageNum");
-				if(p != null) hb.setCurrentPage(Integer.parseInt(p));
 				session.setAttribute("hb", hb);
 				response.sendRedirect("home");
 			}catch (Exception e) {

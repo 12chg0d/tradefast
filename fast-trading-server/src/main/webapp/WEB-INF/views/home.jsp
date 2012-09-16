@@ -13,7 +13,7 @@
 	<link href="resources/css/style.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/header_style.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/home_style.css" media="screen" rel="stylesheet"/>
-
+	<link href="resources/css/bx_styles.css" media="screen" rel="stylesheet"/>
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -29,7 +29,7 @@
   	<div id="header_wrapper">
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
-  			<li><a href="home">HOME</a></li>
+  			<li><a href="HomeController">HOME</a></li>
   			<li><a href="catalog">CATALOG</a></li>
   			<li><a href="faq">FAQ</a></li>
   		</ul>
@@ -66,49 +66,46 @@
 		<%
 			HomeBean hb = (HomeBean)session.getAttribute("hb");
 		    if(hb != null) {
-		    	ArrayList<String[]> arr = hb.getArrForPop();
-		    	ArrayList<String[]> arr2 = hb.getArrForNew();
+		    	ArrayList<String[]> arr = hb.getArrForNew();
+		    	ArrayList<String[]> arr2 = hb.getArrForPop();
 		    	int size = arr.size();
 		    	int size2 = arr2.size();
 		    	String[] str = new  String[7];
 		    	String[] str2 = new  String[7];
-		    	int p = hb.getCurrentPage();
 		    	
 		%>
 			<h3>New Arrivals</h3>
-			<div>
+			<div id="slider1">
 				new item here!
 				<% if(arr != null && size > 0) {
-					str = arr.get(p);
-					for(int i = 0; i< 7; i++) {
+					for(int i = 0 ; i < size; i++) {
+				%>
+						<div>
+				<%
+						str = arr.get(i);
+						for(int j = 0; j< 7; j++) {
 				%>	
-					<p><%=str[i] %></p>
+						<p><%=str[j] %></p>
+						<%System.out.println(str[j]); %>
+				<%
+						}
+				%>
+						</div>
 				<%
 					}
+				}
 				%>
 			</div>
-				<a href="HomeController?pageNum=<%=Integer.toString((p+1)%4) %>">Next</a>
-				<a href="HomeController?pageNum=<%=Integer.toString((p+3)%4) %>">Previous</a>
-			<% } %>
+		<%} %>
 		</div>
-		
+
 		
 		<div id="hot_item">
 			<h3>Hot items</h3>
 			<div> 
 			hot item here!
-			<% if(arr2 != null && size > 0) {
-					str = arr2.get(p);
-					for(int i = 0; i< 7; i++) {
-				%>	
-					<p><%=str2[i] %></p>
-				<%
-					}
-				%>
 			</div>
-			<% } %>
 		</div>	
-		<% } %>
 	</form>	
 
     <div id="footer">
@@ -123,7 +120,13 @@
         });
       });
     </script>
-      	
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script src="resources/js/jquery.bxSlider.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+  		$(document).ready(function(){
+    		$('#slider1').bxSlider();
+  		});
+	</script>  	
     
     </body>
 </html>
