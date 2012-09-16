@@ -42,6 +42,10 @@ public class HomeController {
 	public String login( Model model) {
 		return "login";
 	}
+	@RequestMapping(value = "/Test", method = RequestMethod.GET)
+	public String Test( Model model) {
+		return "Test";
+	}
 	@RequestMapping(value = "/loginbean", method = RequestMethod.POST)
 	public String loginbean(@RequestParam("userName") String userName,@RequestParam("password") String password,Model model) {
 		model.addAttribute("userName", userName);
@@ -67,5 +71,13 @@ public class HomeController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search( Model model) {
 		return "search";
+	}
+	@RequestMapping(value = "/addItem", method = RequestMethod.GET)
+	public String addItem( Model model) {
+		return "addItem";
+	}
+	@RequestMapping(value = "/itemDesc", method = RequestMethod.GET)
+	public String itemDesc( Model model) {
+		return "itemDesc";
 	}
 }

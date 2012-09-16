@@ -71,7 +71,7 @@ if(tb != null) {
     </colgroup>
     <thead>
     	<tr>
-        	<th scope="col" align= "center" >Show Table from database</th>
+        	<th scope="col" align= "center" >Show Order List</th>
         </tr>
     </thead>
     </table>
@@ -82,9 +82,15 @@ if(tb != null) {
     </colgroup>
     <thead>
     	<tr>
-			<th scope="col">ID</th>        	
-			<th scope="col">Name</th>
-			<th scope="col">Set Status</th>
+			<th scope="col">Order ID</th>        	
+			<th scope="col">Sum Money</th>        	
+			<th scope="col">Sum Point</th>        	
+			<th scope="col">Item Amount</th>        	
+			<th scope="col">Address</th>        	
+			<th scope="col">Date</th>
+			<th scope="col">Member ID</th>         	
+			<th scope="col">Packing Status</th>  
+			<th scope="col">Set Payment Status</th>               				
         </tr>
     </thead>
 <%
@@ -97,7 +103,13 @@ if(tb != null) {
 %>
         	<td><%=str[0] %></td>
         	<td><%=str[1] %></td>
-        	<% //System.out.println(str[1]); %>
+        	<td><%=str[2] %></td>
+        	<td><%=str[3] %></td>
+        	<td><%=str[4] %></td>
+        	<td><%=str[5] %></td>
+        	<td><%=str[6] %></td>
+        	<td><%=str[7] %></td>
+        	<!-- <td><a href="login"><%=str[1] %></a></td> -->
         	<td><input type="checkbox" name="setStatus" value=<%=str[0] %> />
 <%				
 				}

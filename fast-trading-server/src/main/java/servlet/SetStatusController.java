@@ -6,8 +6,6 @@ import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import bean.UserBean;
-
 /**
  * This servlet is used to deal with the registration request
  * and bring you to the welcome page.
@@ -24,7 +22,6 @@ public class SetStatusController extends HttpServlet{
 			//Connection
 			Connection conn=null;	
 			PrintWriter out = response.getWriter();
-			//Getting the parameters from registration page.
 			//For validations, I use jQuery for this purposes. 
 			String[] setStatus = (String[])request.getParameterValues("setStatus");
 			try {
@@ -34,7 +31,7 @@ public class SetStatusController extends HttpServlet{
 				.getConnection("jdbc:mysql://localhost/user_register?"
 						+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
 				//Creating the row which has the username and password by using sql symbol "insert".
-				String sql = "update tableTest set status = 'yes' where ID = ?";
+				String sql = "update order_record set payment_status = 'paid' where oID = ?";
 				PreparedStatement pst = conn.prepareStatement(sql);
 				//Using preparedstatement by set the parameter related to "?" symbol.
 				for(int i = 0; i < setStatus.length; i++) {

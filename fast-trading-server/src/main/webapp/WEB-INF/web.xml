@@ -69,4 +69,20 @@
     <servlet-name>RegistrationController</servlet-name>
     <url-pattern>/RegistrationController</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>AddItemController</servlet-name>
+    <servlet-class>servlet.AddItemController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddItemController</servlet-name>
+    <url-pattern>/AddItemController</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>ShowCatController</servlet-name>
+    <servlet-class>servlet.ShowCatController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCatController</servlet-name>
+    <url-pattern>/ShowCatController</url-pattern>
+  </servlet-mapping>
 </web-app>

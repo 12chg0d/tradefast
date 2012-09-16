@@ -4,9 +4,6 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import bean.SearchBean;
 
@@ -44,7 +41,7 @@ public class SearchController extends HttpServlet{
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
 				//Getting the parameters from login page.
 				//Actually, this condition is done by using JQuery.
-				strQuery="select * from cartTable where Name like \'%" + search + "%\'";
+				strQuery="select * from item where Iname like \'%" + search + "%\'";
 				//JDBC methods!
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
@@ -55,6 +52,7 @@ public class SearchController extends HttpServlet{
 				while(rs.next()) {
 					str[0] = rs.getString(1);
 					str[1] = rs.getString(2);
+					
 					arr.add(str);
 					str = new String[2];
 					count++;
@@ -65,11 +63,9 @@ public class SearchController extends HttpServlet{
 					session.setAttribute("searchResult", sb);
 					response.sendRedirect("search");
 				} else {
-					//Setting the parameter named "isHas" in order to show the error message at login page.
 					String haveTableS = "no";
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
-					//RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-				   	session.setAttribute("haveTableS", haveTableS);
+					session.setAttribute("haveTableS", haveTableS);
 				   	//dispatcher.forward(request, response);
 				   	response.sendRedirect("search");
 				}

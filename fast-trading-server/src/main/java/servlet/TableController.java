@@ -4,12 +4,8 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import bean.TableBean;
-import bean.UserBean;
+
 
 //import javax.sql.*;
 import java.sql.*;
@@ -46,19 +42,25 @@ public class TableController extends HttpServlet{
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
 				//Getting the parameters from login page.
 				//Actually, this condition is done by using JQuery.
-				strQuery="select * from tableTest where status=\'no\'";
+				strQuery="select * from order_record where payment_status=\'wait\'";
 				//JDBC methods!
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
 				ArrayList<String[]> arr = new ArrayList<String[]>();
-				String[] str = new String[2];
+				String[] str = new String[9];
 				int count=0;
 				//This while loop is used to set the parameters.
 				while(rs.next()) {
 					str[0] = rs.getString(1);
 					str[1] = rs.getString(2);
+					str[2] = rs.getString(3);
+					str[3] = rs.getString(4);
+					str[4] = rs.getString(5);
+					str[5] = rs.getString(6);
+					str[6] = rs.getString(9);
+					str[7] = rs.getString(8);
 					arr.add(str);
-					str = new String[2];
+					str = new String[9];
 					count++;
 				}
 				tb.setArr(arr);
@@ -67,10 +69,8 @@ public class TableController extends HttpServlet{
 					session.setAttribute("table", tb);
 					response.sendRedirect("catalog");
 				} else {
-					//Setting the parameter named "isHas" in order to show the error message at login page.
 					String haveTable = "no";
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
-					//RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 				   	session.setAttribute("haveTable", haveTable);
 				   	//dispatcher.forward(request, response);
 				   	response.sendRedirect("catalog");

@@ -53,18 +53,15 @@
   	
 	<!--end of header -->
  	<%
- 		//There are two cases. The first is "You have never indexed any document.", it will not show the "Go to search page" button.
- 		//Another case is "You have ever indexed some documents.", it will show the "Go to search page" button.
-		if(ub != null) {
-			System.out.print(ub.getFirstName());
+ 		if(ub != null) {
 	%>
 		<form class="uniForm">
 			<div class="header">
-        		<h3>Welcome <b><%= ub.getUserName()%>!!!</b></h3>
-        		<h3>First Name : <b><%= ub.getFirstName()%>!!!</b></h3>
-        		<h3>Last Name : <b><%= ub.getLastName()%>!!!</b></h3>
+        		<h3>Welcome <b><%= ub.getUsername()%>!!!</b></h3>
+        		<h3>First Name : <b><%= ub.getFname()%>!!!</b></h3>
+        		<h3>Last Name : <b><%= ub.getLname()%>!!!</b></h3>
         		<h3>Address : <b><%= ub.getAddress()%>!!!</b></h3>
-        		<h3>Mobile Phone : <b><%= ub.getTelNo()%>!!!</b></h3>
+        		<h3>Mobile Phone : <b><%= ub.getTel_no()%>!!!</b></h3>
         		<h3>E-mail : <b><%= ub.getEmail()%>!!!</b></h3>
       		</div>
       		<div id="okMsg">

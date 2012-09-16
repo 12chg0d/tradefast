@@ -34,6 +34,7 @@
   			<li><a href="welcome">HOME</a></li>
   			<li><a href="TableController">CATALOG</a></li>
   			<li><a href="search">FAQ</a></li>
+  			<li><a href="ShowCatController"></a>Add Item</li>
   		</ul>
   	
   		

@@ -3,9 +3,6 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import bean.UserBean;
 
@@ -57,19 +54,19 @@ public class LoginController extends HttpServlet{
 					username = request.getParameter("username").toString();
 					userpass = request.getParameter("password").toString();
 					//Getting the exact username and password from database by using sql symbol "select".
-					strQuery="select * from userregister where username=\'"+username+"\'and  password=MD5(\'"+userpass+"\')";
+					strQuery="select * from member where username=\'"+username+"\'and  password=MD5(\'"+userpass+"\')";
 					//JDBC methods!
 					st = conn.createStatement();
 					rs = st.executeQuery(strQuery);
 					int count=0;
 					//This while loop is used to set the parameters in user bean.
 					while(rs.next()) {
-						if(rs.getString(1) != null) ub.setFirstName(rs.getString(1));
-						if(rs.getString(2) != null) ub.setLastName(rs.getString(2));
-						if(rs.getString(3) != null) ub.setAddress(rs.getString(3));
-						if(rs.getString(4) != null) ub.setTelNo(rs.getString(4));
-						if(rs.getString(5) != null) ub.setEmail(rs.getString(5));
-						if(rs.getString(6) != null) ub.setUserName(rs.getString(6));
+						if(rs.getString(2) != null) ub.setFname(rs.getString(2));
+						if(rs.getString(3) != null) ub.setLname(rs.getString(3));
+						if(rs.getString(4) != null) ub.setUsername(rs.getString(4));
+						if(rs.getString(8) != null) ub.setAddress(rs.getString(8));
+						if(rs.getString(9) != null) ub.setTel_no(rs.getString(9));
+						if(rs.getString(10) != null) ub.setEmail(rs.getString(10));
 						count++;
 					}
 					//If you type his username and password correctly, it will bring you to welcome page.
