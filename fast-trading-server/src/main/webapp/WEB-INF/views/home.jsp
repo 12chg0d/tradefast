@@ -83,13 +83,13 @@
 						<div>
 				<%
 						str = arr.get(i);
-						for(int j = 0; j< 7; j++) {
+						for(int j = 0; j< 6; j++) {
 				%>	
 						<p><%=str[j] %></p>
-						<%System.out.println(str[j]); %>
 				<%
 						}
 				%>
+						<p><img src=<%=str[6] %> /></p>
 						</div>
 				<%
 					}

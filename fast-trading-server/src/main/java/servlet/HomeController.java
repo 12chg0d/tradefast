@@ -75,8 +75,8 @@ public class HomeController extends HttpServlet{
 					str2[4] = rs.getString(5);
 					str2[5] = rs.getString(6);
 					str2[6] = rs.getString(7);
-					arr.add(str2);
-					str = new String[7];
+					arr2.add(str2);
+					str2 = new String[7];
 				}
 				hb.setArrForPop(arr2);
 				session.setAttribute("hb", hb);
