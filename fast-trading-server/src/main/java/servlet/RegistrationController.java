@@ -131,7 +131,7 @@ public class RegistrationController extends HttpServlet{
 						ub.setTel_no(tel_no);
 						ub.setUsername(username);
 						session.setAttribute("user", ub);
-						response.sendRedirect("welcome");
+						response.sendRedirect("home");
 					} else {
 						String dup = "no";
 				    	session.setAttribute("dup", dup);

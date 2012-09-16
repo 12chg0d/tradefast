@@ -30,9 +30,9 @@
   	<div id="header_wrapper">
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
-  			<li><a href="welcome">HOME</a></li>
-  			<li><a href="TableController">CATALOG</a></li>
-  			<li><a href="search">FAQ</a></li>
+  			<li><a href="home">HOME</a></li>
+  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="faq">FAQ</a></li>
   		</ul>
   	
   		
@@ -43,7 +43,7 @@
   			UserBean ub = (UserBean)session.getAttribute("user");
   			if(ub != null) {
   			%>
-  				<a href="LogoutController"><img src="resources/img/login_icon02.png" height = "50"/></a>
+  				<a href="LogoutController"><img src="resources/img/logout_icon.png" height = "50"/></a>
   			<% } 
 			else if(ub == null) { %>
 				<a href="login"><img src="resources/img/login_icon.png" height = "50"/></a>

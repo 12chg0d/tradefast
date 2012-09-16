@@ -24,7 +24,7 @@
   </head>
 
   <body>
-<!-- header -->
+  	<!-- header -->
   	<div id="header_wrapper">
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
@@ -53,71 +53,20 @@
 		    <form class="search_form" action="SearchController" method="post">    
 		          <label for="">Search</label>
 		          <input name="itemName" id="itemName" data-default-value="Item Name" size="20" maxlength="100" type="text" class="textInput required"/>
-				  <input type="image" src="resources/img/search_icon.png" class="primaryAction" width="20"></input>
+				  <input type="image" src="resources/img/search_icon.png" class="primaryAction" width="20">
 		    </form>
 		</div>
-  		
- 	
-  	</div>
-  	<!--end of header -->
-		
-	
-	<!-- It will receive the username and password here and then send it to loginbean -->
-	
-	<%
-	SearchBean sb = (SearchBean)session.getAttribute("searchResult");
-    String haveTableS = (String)session.getAttribute("haveTableS");
-	if(sb != null) {
-		ArrayList<String[]> arr = sb.getArr();	
-		int size = arr.size();
-		String[] str = new String[2];
-		if(arr != null && size > 0) {
-				
-	%>
-	<div class="center">
-	<table id="newspaper-a" summary="test-table">
-	   <colgroup>
-	    	<col class="oce-first" />
-	    </colgroup>
-	    <thead>
-	    	<tr>
-	        	<th scope="col" align= "center" >Search Result</th>
-	        </tr>
-	    </thead>
-	    </table>
-	    
-	    <table id="newspaper-a" summary="test-table">
-	   <colgroup>
-	    	<col class="oce-first" />
-	    </colgroup>
-	    <thead>
-	    	<tr>
-				<th scope="col">ID</th>        	
-				<th scope="col">Name</th>
-	        </tr>
-	    </thead>
-	<%
-				for(int i = 0; i < size; i++) {
-	%>
-		<tbody>
-	    	<tr>
-	<%
-					str = arr.get(i);
-	%>
-	        	<td><%=str[0] %></td>
-	        	<td><%=str[1] %></td>
-	<%				
-					}
-	%>
-	        </tr>
-	    </tbody>
-	    </table>
-	    </div>
-	<%
-		}
-	}
-	else if(haveTableS != null && haveTableS.equalsIgnoreCase("no")) {
-	%>
+			
+			<%
+			SearchBean sb = (SearchBean)session.getAttribute("searchResult");
+		    String haveTableS = (String)session.getAttribute("haveTableS");
+			if(sb != null) {
+				ArrayList<String[]> arr = sb.getArr();	
+				int size = arr.size();
+				String[] str = new String[2];
+				if(arr != null && size > 0) {
+						
+			%>
 			<div class="center">
 			<table id="newspaper-a" summary="test-table">
 			   <colgroup>
@@ -125,16 +74,72 @@
 			    </colgroup>
 			    <thead>
 			    	<tr>
-			        	<th scope="col" align= "center" >This item does not exist!</th>
+			        	<th scope="col" align= "center" >Search Result</th>
 			        </tr>
 			    </thead>
 			    </table>
-			 </div>
-	<%			
-		}
-	session.setAttribute("haveTableS", null);
-	session.setAttribute("searchResult", null );
-	%>	
+			    
+			    <table id="newspaper-a" summary="test-table">
+			   <colgroup>
+			    	<col class="oce-first" />
+			    </colgroup>
+			    <thead>
+			    	<tr>
+						<th scope="col">ID</th>        	
+						<th scope="col">Name</th>
+			        </tr>
+			    </thead>
+			<%
+						for(int i = 0; i < size; i++) {
+			%>
+				<tbody>
+			    	<tr>
+			<%
+							str = arr.get(i);
+			%>
+			        	<td><%=str[0] %></td>
+			        	<td><%=str[1] %></td>
+			<%				
+							}
+			%>
+			        </tr>
+			    </tbody>
+			    </table>
+			    </div>
+			<%
+				}
+			}
+			else if(haveTableS != null && haveTableS.equalsIgnoreCase("no")) {
+			%>
+					<div class="center">
+					<table id="newspaper-a" summary="test-table">
+					   <colgroup>
+					    	<col class="oce-first" />
+					    </colgroup>
+					    <thead>
+					    	<tr>
+					        	<th scope="col" align= "center" >This item does not exist!</th>
+					        </tr>
+					    </thead>
+					    </table>
+					 </div>
+			<%			
+				}
+			session.setAttribute("haveTableS", null);
+			session.setAttribute("searchResult", null );
+			%>
+  		
+  		
+  		
+  		
+  		
+  		
+  	</div>
+  	
+	<!--end of header -->
+	
+	
+		
 
     <div id="footer">
     </div>

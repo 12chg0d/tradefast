@@ -69,6 +69,14 @@
     <servlet-name>RegistrationController</servlet-name>
     <url-pattern>/RegistrationController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>HomeController</servlet-name>
+    <servlet-class>servlet.HomeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeController</servlet-name>
+    <url-pattern>/HomeController</url-pattern>
+  </servlet-mapping>
    <servlet>
     <servlet-name>AddItemController</servlet-name>
     <servlet-class>servlet.AddItemController</servlet-class>

@@ -73,7 +73,7 @@ public class LoginController extends HttpServlet{
 					if(count>0){
 						//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 						session.setAttribute("user", ub);
-						response.sendRedirect("welcome");
+						response.sendRedirect("home");
 					} else {
 						//Setting the parameter named "isHas" in order to show the error message at login page.
 						String isHas = "no";

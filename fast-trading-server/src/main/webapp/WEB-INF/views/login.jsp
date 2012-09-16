@@ -14,6 +14,7 @@
 	<link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
 	<link href="resources/css/demo.css" media="screen" rel="stylesheet"/>
+	<link href="resources/css/style.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/header_style.css" media="screen" rel="stylesheet"/>
 
     
@@ -31,10 +32,10 @@
   	<div id="header_wrapper">
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
-  			<li><a href="welcome">HOME</a></li>
-  			<li><a href="TableController">CATALOG</a></li>
-  			<li><a href="search">FAQ</a></li>
-  			<li><a href="ShowCatController"></a>Add Item</li>
+  			<li><a href="home">HOME</a></li>
+  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="faq">FAQ</a></li>
+  			
   		</ul>
   	
   		
