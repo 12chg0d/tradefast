@@ -30,7 +30,7 @@
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
   			<li><a href="HomeController">HOME</a></li>
-  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="ShowCatControllerForCat">CATALOG</a></li>
   			<li><a href="faq">FAQ</a></li>
   		</ul>
   		

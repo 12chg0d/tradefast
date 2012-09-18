@@ -30,7 +30,7 @@
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
   			<li><a href="home">HOME</a></li>
-  			<li><a href="catalog">CATALOG</a></li>
+  			<li><a href="ShowCatControllerForCat">CATALOG</a></li>
   			<li><a href="faq">FAQ</a></li>
   		</ul>
   		
@@ -57,81 +57,35 @@
 				  <input type="image" src="resources/img/search_icon.png" class="primaryAction" width="20">
 		    </form>
 		</div>
-			
-			<%
-			SearchBean sb = (SearchBean)session.getAttribute("searchResult");
-		    String haveTableS = (String)session.getAttribute("haveTableS");
-			if(sb != null) {
-				ArrayList<String[]> arr = sb.getArr();	
-				int size = arr.size();
-				String[] str = new String[2];
-				if(arr != null && size > 0) {
-						
-			%>
-			<div class="center">
-			<table id="newspaper-a" summary="test-table">
-			   <colgroup>
-			    	<col class="oce-first" />
-			    </colgroup>
-			    <thead>
-			    	<tr>
-			        	<th scope="col" align= "center" >Search Result</th>
-			        </tr>
-			    </thead>
-			    </table>
-			    
-			    <table id="newspaper-a" summary="test-table">
-			   <colgroup>
-			    	<col class="oce-first" />
-			    </colgroup>
-			    <thead>
-			    	<tr>
-						<th scope="col">ID</th>        	
-						<th scope="col">Name</th>
-			        </tr>
-			    </thead>
-			<%
-						for(int i = 0; i < size; i++) {
-			%>
-				<tbody>
-			    	<tr>
-			<%
-							str = arr.get(i);
-			%>
-			        	<td><%=str[0] %></td>
-			        	<td><%=str[1] %></td>
-			<%				
-							}
-			%>
-			        </tr>
-			    </tbody>
-			    </table>
-			    </div>
-			<%
-				}
+	</div>
+	<!--end of header -->
+		<% ShowCatBean scbForCat = (ShowCatBean)session.getAttribute("scbForCat"); 
+		if(scbForCat != null) { 
+        	ArrayList<String[]> arr = scbForCat.getArr();
+        	int size = arr.size();
+    		String[] str = new String[2];
+        	if(arr != null&& size > 0) {
+        		System.out.println("Test3");
+        %>
+		        <div>
+		          <label for=""><em>*</em> Category</label>
+		          <select>
+		<%		for(int i = 0; i < size; i++) {
+        			str = arr.get(i);
+        %>
+		            <option value= <%=str[0] %> ><%=str[1] %></option>
+		<%
+		         }
+		%>
+				 </select>
+				 <!--<input type="button" onclick="window.location.href='HomeController'">Show Items!-->
+				</div>
+		<%			
 			}
-			else if(haveTableS != null && haveTableS.equalsIgnoreCase("no")) {
-			%>
-					<div class="center">
-					<table id="newspaper-a" summary="test-table">
-					   <colgroup>
-					    	<col class="oce-first" />
-					    </colgroup>
-					    <thead>
-					    	<tr>
-					        	<th scope="col" align= "center" >This item does not exist!</th>
-					        </tr>
-					    </thead>
-					    </table>
-					 </div>
-			<%			
-				}
-			session.setAttribute("haveTableS", null);
-			session.setAttribute("searchResult", null );
-			%>
-  		
- 	
-  	</div>
+		}					
+		 %>
+		</form>
+		
 
 </body>
 </html>

@@ -29,12 +29,28 @@
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ShowCatControllerForCat</servlet-name>
+    <servlet-class>servlet.ShowCatControllerForCat</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCatControllerForCat</servlet-name>
+    <url-pattern>/ShowCatControllerForCat</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>TableController</servlet-name>
     <servlet-class>servlet.TableController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>TableController</servlet-name>
     <url-pattern>/TableController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddToCartController</servlet-name>
+    <servlet-class>servlet.AddToCartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartController</servlet-name>
+    <url-pattern>/AddToCartController</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>SetStatusController</servlet-name>
