@@ -58,8 +58,8 @@ public class CatalogController extends HttpServlet{
 					str[c][6] = rs.getString(7);
 					c++;
 					if(c == 12) {
-						str = new String[12][7];
 						arr.add(str);
+						str = new String[12][7];
 						c=0;
 					} 
 				}

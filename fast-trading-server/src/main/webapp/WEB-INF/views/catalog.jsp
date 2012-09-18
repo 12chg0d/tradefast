@@ -106,6 +106,9 @@
 		<%	
 							
 							}
+		%>
+							<a href="AddToCartController?iID="+<%=str[i][0]%> >Add to Cart</a>
+		<%
 						} else {
 							break;
 						}
