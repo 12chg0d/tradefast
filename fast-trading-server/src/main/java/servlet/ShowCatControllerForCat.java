@@ -19,7 +19,8 @@ public class ShowCatControllerForCat extends HttpServlet{
 		throws ServletException,IOException{
 			//I use "session" in order to throws the object named user bean.
 			HttpSession session = request.getSession(true);
-			ShowCatBean scb = new ShowCatBean();	
+			ShowCatBean scb = new ShowCatBean();
+			session.setAttribute("cb", null);
 			response.setContentType("text/html");
 			request.setCharacterEncoding("UTF-8");
 			//Creating the parameters which will be used later.
@@ -60,13 +61,13 @@ public class ShowCatControllerForCat extends HttpServlet{
 				if(count>0){
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					session.setAttribute("scbForCat", scb);
-					response.sendRedirect("catalog");
+					response.sendRedirect("CatalogController");
 				} else {
 					String haveCat = "no";
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					session.setAttribute("haveCatForCat", haveCat);
 				   	//dispatcher.forward(request, response);
-				   	response.sendRedirect("catalog");
+				   	response.sendRedirect("CatalogController");
 				}
 				} catch (Exception e) {
 				e.printStackTrace();

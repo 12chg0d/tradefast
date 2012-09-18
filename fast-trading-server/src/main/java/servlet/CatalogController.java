@@ -18,12 +18,13 @@ public class CatalogController extends HttpServlet{
 			HttpSession session = request.getSession(true);
 			response.setContentType("text/html");
 			request.setCharacterEncoding("UTF-8");
-			
 			CatalogBean cb = new CatalogBean();
 			//Connection
 			Connection conn=null;	
 			//For validations, I use jQuery for this purposes.
-			String catID  = (String)request.getParameter("catID");
+			String catID  = "all";
+			String temp = (String)request.getParameter("catID");
+			if(temp != null) catID = temp;
 			Statement st=null;
 			//ResultSet
 			ResultSet rs=null;
