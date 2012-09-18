@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.header b{
+	color : #ffe900;
+}
+
+#welcome {
+	margin-left : 350px;
+}
+
+#line {
+	width : 100%;
+	height : 1px;
+	background : #fff;
+	
+}

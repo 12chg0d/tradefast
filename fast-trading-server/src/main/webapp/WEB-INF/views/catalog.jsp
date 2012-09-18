@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     <%@ page import="bean.*" %>
 <%@ page import="java.util.ArrayList" %><!-- Test -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -59,33 +59,82 @@
 		</div>
 	</div>
 	<!--end of header -->
+	
+	
+	<div id="container">	
 		<% ShowCatBean scbForCat = (ShowCatBean)session.getAttribute("scbForCat"); 
 		if(scbForCat != null) { 
         	ArrayList<String[]> arr = scbForCat.getArr();
         	int size = arr.size();
     		String[] str = new String[2];
         	if(arr != null&& size > 0) {
-        		System.out.println("Test3");
         %>
 		        <div>
 		          <label for=""><em>*</em> Category</label>
-		          <select>
+		          <select name="catID" id="catID">
 		<%		for(int i = 0; i < size; i++) {
         			str = arr.get(i);
+        			//System.out.println("str[0]");
         %>
 		            <option value= <%=str[0] %> ><%=str[1] %></option>
 		<%
 		         }
 		%>
+					<option value="all">All</option> 
 				 </select>
-				 <!--<input type="button" onclick="window.location.href='HomeController'">Show Items!-->
-				</div>
+				 </div>
 		<%			
 			}
 		}					
+		 	CatalogBean cb = (CatalogBean)session.getAttribute("cb");
+		 	int p = 0;
+		 	String pageNum = (String)request.getParameter("pageNum");
+		 	if(pageNum != null) p = Integer.parseInt(pageNum)-1;
+		 	if(cb != null) {
+		 		ArrayList<String[][]> arr = cb.getArr();
+		 		int size = arr.size();
+		 		if(arr != null && size > 0) {
+		 			String[][] str = arr.get(p);
+					for(int i = 0; i < 12; i++) {
+		%>
+				<div>
+		<%				if(str[i][0] != null) {
+							for(int j = 0; j < 7; j++) {
+							
+		%>
+								<p><%=str[i][j] %></p>
+		<%	
+							
+							}
+						} else {
+							break;
+						}
+		%>		
+				</div>
+		<%
+		 			}
+		 		}
+		 		for(int i = 0; i < size; i++) {
+					String pTemp = Integer.toString(i+1);
+		%>
+			<a href="catalog?pageNum=<%=pTemp %>"><%=pTemp %></a>
+		<%	
+					}
+		 	}
 		 %>
-		</form>
+		 
 		
-
+	</div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>    
+	<script>
+	    $(function(){
+	      // bind change event to select
+	      $('#catID').bind('change', function () {
+	    	  var catID = $(this).val();
+	          window.location.href= "CatalogController?catID="+catID;
+	      });
+	    });
+	</script>
 </body>
 </html>

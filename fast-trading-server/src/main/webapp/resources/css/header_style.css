@@ -16,28 +16,35 @@
 
 #header_wrapper img {
 	padding-left : 10px;
+	position : relative;
 }
 
 
 #header_wrapper ul {
 	display: inline;
+	position : relative;
 }
 
 #header_wrapper li {
 	display : inline;
+	position : relative;
 }
 
 #header_wrapper a {
-	font-size: 30px;
+	font-size: 28px;
 	font-style : bold;
 	padding : 5px 25px;
 	text-decolation : none;
 	color : #fff;
+	position : relative;
 }
 
 #header_wrapper li :hover {
 	background : #ffe500;
 	color : #2d2d2d;
+	-webkit-border-radius: 10px 10px 0px 0px;
+	-moz-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;
 }
 
 
@@ -45,6 +52,8 @@
 	display : inline;
 	float : right;
 	padding: 5px;
+	width : 20%;
+	position : relative;
 }
 
 
@@ -55,7 +64,7 @@
 
 #search_box {
 	display : inline;
-	width : 20%;
+	width : 10%;
 	
 }
 
@@ -63,5 +72,22 @@
 	margin-left: 10px;
 	padding : 10px;
 	display : inline;
-	width : 20%;
+	width : 10%;
+}
+
+#container {
+	width :900px;
+	background : #2d2d2d;
+	margin : 100px auto auto auto;
+	padding : 10px;
+	height : auto;
+	height : 100%;
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
+	-webkit-box-shadow: #4D4D4D 2px 2px 2px;
+	-moz-box-shadow: #4D4D4D 2px 2px 2px;
+	 box-shadow: #4D4D4D 2px 2px 2px;
 }

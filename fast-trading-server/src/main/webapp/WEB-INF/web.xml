@@ -101,12 +101,20 @@
     <servlet-name>AddItemController</servlet-name>
     <url-pattern>/AddItemController</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>ShowCatController</servlet-name>
     <servlet-class>servlet.ShowCatController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ShowCatController</servlet-name>
     <url-pattern>/ShowCatController</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>CatalogController</servlet-name>
+    <servlet-class>servlet.CatalogController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CatalogController</servlet-name>
+    <url-pattern>/CatalogController</url-pattern>
   </servlet-mapping>
 </web-app>

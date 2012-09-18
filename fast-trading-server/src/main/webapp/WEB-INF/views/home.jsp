@@ -61,8 +61,12 @@
  	
   	</div>
   	<!--end of header -->
-	<form method = "post" action="#">
+  	
+  	<div id="container">
+  		<h3>New Arrivals</h3>
+  		<form method = "post" action="#">
 		<div id="new_item">
+		
 		<%
 			HomeBean hb = (HomeBean)session.getAttribute("hb");
 		    if(hb != null) {
@@ -74,22 +78,22 @@
 		    	String[] str2 = new  String[7];
 		    	
 		%>
-			<h3>New Arrivals</h3>
+			
 			<div id="slider1">
-				new item here!
 				<% if(arr != null && size > 0) {
 					for(int i = 0 ; i < size; i++) {
 				%>
-						<div>
+						<div id="new_item_slider">
 				<%
 						str = arr.get(i);
-						for(int j = 0; j< 6; j++) {
+						
 				%>	
-						<p><%=str[j] %></p>
+						<h2><%=str[1] %></h2>
+						<h3><%=str[2] %></h3>
 				<%
-						}
+						
 				%>
-						<p><img src=<%=str[6] %> /></p>
+						<img class="new_item_img" src=<%=str[6] %> height="180"/>
 						</div>
 				<%
 					}
@@ -107,6 +111,8 @@
 			</div>
 		</div>	
 	</form>	
+  	</div>
+	
 
     <div id="footer">
     </div>
@@ -124,7 +130,10 @@
 	<script src="resources/js/jquery.bxSlider.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
   		$(document).ready(function(){
-    		$('#slider1').bxSlider();
+    		$('#slider1').bxSlider({
+    			auto: true,
+    		    autoControls: true
+    		});
   		});
 	</script>  	
     
