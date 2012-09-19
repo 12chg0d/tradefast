@@ -5,6 +5,7 @@ import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import bean.CatBean;
 import bean.ItemBean;
 
 /**
@@ -13,7 +14,7 @@ import bean.ItemBean;
  * It's all about JDBC(SQL) stuff.
  * Version 0.9.0 by Phoonlarp :)  
  */
-public class AddItemController extends HttpServlet{
+public class AddCatController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -42,18 +43,9 @@ public class AddItemController extends HttpServlet{
 			  `catID` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
 			  `picture` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
 			 */
-			
-			String Iname = request.getParameter("Iname");
+			String cID = "0000000000";
+			String Catname = request.getParameter("Catname");
 			String description = request.getParameter("description");
-			String price_money_only = request.getParameter("price_money_only");
-			String price_point_only = request.getParameter("price_point_only");
-			String price_point_couple = request.getParameter("price_point_couple");
-			String price_money_couple = request.getParameter("price_money_couple");
-			String remaining_number = request.getParameter("remaining_numbers");
-			String minimum_numbers = request.getParameter("minimum_numbers");
-			String catID = request.getParameter("catID");
-			String cat=null;
-			String picture = request.getParameter("link");
 			Statement st=null;
 			//ResultSet
 			ResultSet rs=null;
@@ -65,7 +57,7 @@ public class AddItemController extends HttpServlet{
 				conn = DriverManager
 						.getConnection("jdbc:mysql://localhost/user_register?"
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
-				strQuery="select Iname from item where Iname=\'"+Iname+"\'";
+				strQuery="select Catname from category where Catname=\'"+Catname+"\'";
 				//JDBC methods!
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
@@ -75,36 +67,20 @@ public class AddItemController extends HttpServlet{
 					c++;
 				}
 				if(c == 0) {
-					String iID = "0000000000";
-					strQuery = "select iID from item order by cast(iID as signed) desc";
+					strQuery = "select cID from category order by cast(cID as signed) desc";
 					st = conn.createStatement();
 					rs = st.executeQuery(strQuery);
 					//This while loop is used to set the parameters in user bean.
 					while(rs.next()) {
-						if(rs.getString(1) != null) iID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
+						if(rs.getString(1) != null) cID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
 						break;
 					}
-					strQuery = "select Catname from category where cID = \'"+catID+"\'";
-					rs = st.executeQuery(strQuery);
-					while(rs.next()) {
-						if(rs.getString(1) != null) cat =rs.getString(1);
-					}
-					String sql = "insert into item values (?,?,?,?,?,?,?,?,?,?,?, ?)";
+					String sql = "insert into category values (?,?,?)";
 					PreparedStatement pst = conn.prepareStatement(sql);
 					//Using preparedstatement by set the parameter related to "?" symbol.
-					
-					pst.setString(1, iID);
-					pst.setString(2, Iname);
+					pst.setString(1, cID);
+					pst.setString(2, Catname);
 					pst.setString(3, description);
-					pst.setInt(4,Integer.parseInt(price_money_only));
-					pst.setInt(5,Integer.parseInt(price_point_only));
-					pst.setInt(6,Integer.parseInt(price_point_couple));
-					pst.setInt(7,Integer.parseInt(price_money_couple));
-					pst.setInt(8,Integer.parseInt(remaining_number));
-					pst.setInt(9,Integer.parseInt(minimum_numbers));
-					pst.setString(10, cat);
-					pst.setString(11, picture);
-					pst.setInt(12,0);
 					pst.executeUpdate();
 					pst.close();
 				}
@@ -127,21 +103,16 @@ public class AddItemController extends HttpServlet{
 					if (conn != null) conn.close();
 					if(c == 0) {
 						//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
-						ItemBean ib = new ItemBean();
-						ib.setCat(cat);
-						ib.setDescription(description);
-						ib.setIname(Iname);
-						ib.setPicture(picture);
-						ib.setPrice_money_couple(price_money_couple);
-						ib.setPrice_money_only(price_money_only);
-						ib.setPrice_point_couple(price_point_couple);
-						ib.setPrice_point_only(price_point_only);
-						session.setAttribute("ib", ib);
-						response.sendRedirect("itemDesc");
+						CatBean catB = new CatBean();
+						catB.setcID(cID);
+						catB.setCatname(Catname);
+						catB.setDescription(description);
+						session.setAttribute("catB", catB);
+						response.sendRedirect("catDesc");
 					} else {
-						String dupI = "no";
-				    	session.setAttribute("dupI", dupI);
-				    	response.sendRedirect("addItem");
+						String dupC = "no";
+				    	session.setAttribute("dupC", dupC);
+				    	response.sendRedirect("addCat");
 					}
 				}
 				catch (SQLException ignored){

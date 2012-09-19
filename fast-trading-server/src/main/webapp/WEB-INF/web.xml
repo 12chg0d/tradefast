@@ -165,6 +165,15 @@
     <servlet-name>AddItemController</servlet-name>
     <url-pattern>/AddItemController</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>AddCatController</servlet-name>
+    <servlet-class>servlet.AddCatController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCatController</servlet-name>
+    <url-pattern>/AddCatController</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>ShowCatController</servlet-name>
     <servlet-class>servlet.ShowCatController</servlet-class>
