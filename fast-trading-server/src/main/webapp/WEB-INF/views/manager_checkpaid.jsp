@@ -31,7 +31,7 @@
   		<ul>
   			<li><a href="manager_additem">Add/Delete Item</a></li>
   			<li><a href="manager_addcate">Add/Delete Category</a></li>
-  			<li><a href="manager_checkpaid">Change Status</a></li>
+  			<li><a href="TableController">Change Status</a></li>
   		</ul>
   	
   		
@@ -85,10 +85,10 @@ if(tb != null) {
 			<th scope="col">Order ID</th>        	
 			<th scope="col">Sum Money</th>        	
 			<th scope="col">Sum Point</th>        	
-			<th scope="col">Item Amount</th>        	
-			<th scope="col">Address</th>        	
-			<th scope="col">Date</th>
-			<th scope="col">Member ID</th>         	
+			<th scope="col">Item Amount</th>
+			<th scope="col">Date</th>        	
+			<th scope="col">Member ID</th>  
+			<th scope="col">Address</th>        	       	
 			<th scope="col">Packing Status</th>  
 			<th scope="col">Set Payment Status</th>               				
         </tr>
@@ -105,9 +105,9 @@ if(tb != null) {
         	<td><%=str[1] %></td>
         	<td><%=str[2] %></td>
         	<td><%=str[3] %></td>
-        	<td><%=str[4] %></td>
-        	<td><%=str[5] %></td>
+ 			<td><%=str[5] %></td>
         	<td><%=str[6] %></td>
+        	<td><%=str[4] %></td>
         	<td><%=str[7] %></td>
         	<!-- <td><a href="login"><%=str[1] %></a></td> -->
         	<td><input type="checkbox" name="setStatus" value=<%=str[0] %> />

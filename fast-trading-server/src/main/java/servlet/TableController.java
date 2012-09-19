@@ -68,13 +68,13 @@ public class TableController extends HttpServlet{
 				if(count>0){
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					session.setAttribute("table", tb);
-					response.sendRedirect("catalog");
+					response.sendRedirect("manager_checkpaid");
 				} else {
 					String haveTable = "no";
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 				   	session.setAttribute("haveTable", haveTable);
 				   	//dispatcher.forward(request, response);
-				   	response.sendRedirect("catalog");
+				   	response.sendRedirect("manager_checkpaid");
 				}
 				} catch (Exception e) {
 				e.printStackTrace();
