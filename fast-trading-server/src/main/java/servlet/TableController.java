@@ -63,6 +63,7 @@ public class TableController extends HttpServlet{
 					str = new String[9];
 					count++;
 				}
+				rs.close();
 				tb.setArr(arr);
 				if(count>0){
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.

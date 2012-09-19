@@ -2,9 +2,7 @@ package servlet;
 
 import java.io.*;
 import java.sql.*;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -20,110 +18,83 @@ public class AddToCartController extends HttpServlet{
 			HttpSession session = request.getSession(true);
 			response.setContentType("text/html");
 			request.setCharacterEncoding("UTF-8");
-			String s = (String)request.getParameter("test");
-			System.out.println(s);
-			/*
-			//Connection
-			Connection conn=null;	
-			PrintWriter out = response.getWriter();
-			//Getting the parameters from registration page.
-			//For validations, I use jQuery for this purposes.
-			String Fname = request.getParameter("Fname");
-			String Lname = request.getParameter("Lname");
-			System.out.println(Lname);
-			String sex = request.getParameter("sex");
-			String birthdate = request.getParameter("birthdate");
-			String address = request.getParameter("address");
-			String email = request.getParameter("email");
-			String tel_no = request.getParameter("tel_no");
-			String username = request.getParameter("username");
-			String password = request.getParameter("password");
+			String iID = (String)request.getParameter("iID");
+			UserBean ub = (UserBean)session.getAttribute("user");
+			if(ub == null) {
+				String haveLogin = "no";
+				session.setAttribute("haveLogin", haveLogin);
+				response.sendRedirect("cart");
+			}
+			else {
+			String mID = (String)ub.getmID();
+			Connection conn = null;
 			Statement st=null;
 			//ResultSet
 			ResultSet rs=null;
 			String strQuery=null;
-			int c = 0;
 			try {
 				//Setting the connection in database by using prepared statement.
 				Class.forName("org.gjt.mm.mysql.Driver");
 				conn = DriverManager
 						.getConnection("jdbc:mysql://localhost/user_register?"
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
-				strQuery="select * from member where username=\'"+username+"\'";
+				strQuery="select total_amount from cart_item_mapping where mID=\'"+mID+"\'and iID=\'"+iID+"\'";
+				int c=0;
+				int amount = 0;
 				//JDBC methods!
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
-				//This while loop is used to set the parameters in user bean.
 				while(rs.next()) {
-					rs.getString(1);
+					amount = rs.getInt(1);
 					c++;
 				}
-				if(c == 0) {
-					strQuery = "select max(mID) from member";
-					st = conn.createStatement();
-					rs = st.executeQuery(strQuery);
-					//This while loop is used to set the parameters in user bean.
-					String mID = "0000000000";
-					while(rs.next()) {
-						if(rs.getString(1) != null) mID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
-					}
-					DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-					Date date = new Date();
-					String registration_date = dateFormat.format(date);		
-					String sql = "insert into member values (?,?,?,?,MD5(?),?,?,?,?,?,?,'active')";
+				if(c > 0) {
+					amount = amount + 1;
+					String sql = "update cart_item_mapping set total_amount = ? where mID=? and iID=?";
 					PreparedStatement pst = conn.prepareStatement(sql);
 					//Using preparedstatement by set the parameter related to "?" symbol.
-					pst.setString(1, mID);
-					pst.setString(2, Fname);
-					pst.setString(3, Lname);
-					pst.setString(4, username);
-					pst.setString(5, password);
-					pst.setString(6, sex);
-					pst.setString(7, birthdate);
-					pst.setString(8, address);
-					pst.setString(9, tel_no);
-					pst.setString(10, email);
-					pst.setString(11, registration_date);
+					pst.setInt(1, amount);
+					pst.setString(2, mID);
+					pst.setString(3, iID);
+					pst.executeUpdate();
+					pst.close();			
+					
+				} else {
+					strQuery = "select Iname, price_money_only, price_point_only, price_point_couple, price_money_couple, picture from item where iID=\'"+iID+"\'";
+					rs = st.executeQuery(strQuery);
+					String[] str = new String[6];
+					while(rs.next()) {
+						str[0] = rs.getString(1);
+						str[1] = rs.getString(2);
+						str[2] = rs.getString(3);
+						str[3] = rs.getString(4);
+						str[4] = rs.getString(5);
+						str[5] = rs.getString(6);
+					}
+					String sql = "insert into cart_item_mapping values (?,?,?,?,?,?,?,?,?)";
+					PreparedStatement pst = conn.prepareStatement(sql);
+					//Using preparedstatement by set the parameter related to "?" symbol.
+					pst.setString(1, iID);
+					pst.setInt(2, 1);
+					pst.setString(3, mID);
+					pst.setString(4, str[0]);
+					pst.setInt(5, Integer.parseInt(str[1]));
+					pst.setInt(6, Integer.parseInt(str[2]));
+					pst.setInt(7, Integer.parseInt(str[3]));
+					pst.setInt(8, Integer.parseInt(str[4]));
+					pst.setString(9, str[5]);
 					pst.executeUpdate();
 					pst.close();
+					rs.close();
 				}
+				response.sendRedirect("ShowCartController");
+			}catch (Exception e) {
+				e.printStackTrace();
 			}
-			catch(ClassNotFoundException e){
-				//In case that it cannot find the database.
-				out.println("Couldn't load database driver: " + e.getMessage());
 			}
-			catch(SQLException e){
-				//In case that it has SQL exception.
-				out.println("SQLException caught: " + e.getMessage());	
-			}
-			catch (Exception e){
-				out.println(e);
-			}
-			finally {
-				try {
-					//Don't forget to close your connection.
-					if (conn != null) conn.close();
-					if(c == 0) {
-						//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
-						UserBean ub = new UserBean();
-						ub.setAddress(address);
-						ub.setEmail(email);
-						ub.setFname(Fname);
-						ub.setLname(Lname);
-						ub.setTel_no(tel_no);
-						ub.setUsername(username);
-						session.setAttribute("user", ub);
-						response.sendRedirect("home");
-					} else {
-						String dup = "no";
-				    	session.setAttribute("dup", dup);
-				    	response.sendRedirect("register");
-					}
-				}
-				catch (SQLException ignored){
-					out.println(ignored);
-					
-				}
-			}*/
-	}
+		}					
+	 public void doGet(HttpServletRequest request, HttpServletResponse response)
+             throws IOException, ServletException{
+		 doPost(request, response);
+	 }
 }

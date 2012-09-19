@@ -78,6 +78,7 @@ public class HomeController extends HttpServlet{
 					arr2.add(str2);
 					str2 = new String[7];
 				}
+				rs.close();
 				hb.setArrForPop(arr2);
 				session.setAttribute("hb", hb);
 				response.sendRedirect("home");

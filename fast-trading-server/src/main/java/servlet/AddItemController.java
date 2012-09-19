@@ -121,6 +121,7 @@ public class AddItemController extends HttpServlet{
 			finally {
 				try {
 					//Don't forget to close your connection.
+					rs.close();
 					if (conn != null) conn.close();
 					if(c == 0) {
 						//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.

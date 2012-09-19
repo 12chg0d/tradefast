@@ -67,6 +67,7 @@ public class CatalogController extends HttpServlet{
 				if(c < 12) {
 					arr.add(str);
 				}
+				rs.close();
 				cb.setArr(arr);			
 				session.setAttribute("cb", cb);
 				response.sendRedirect("catalog");

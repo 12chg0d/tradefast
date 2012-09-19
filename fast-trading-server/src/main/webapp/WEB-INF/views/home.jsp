@@ -36,7 +36,7 @@
   		
   		<div id="right_menu">
   			<a href="account"><img src="resources/img/account_icon.png" height = "50"/></a>
-  			<a href="cart"><img src="resources/img/cart_icon.png" height = "50"/></a>
+  			<a href="ShowCartController"><img src="resources/img/cart_icon.png" height = "50"/></a>
   			<%
   			UserBean ub = (UserBean)session.getAttribute("user");
   			if(ub != null) {

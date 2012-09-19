@@ -29,6 +29,22 @@
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CheckOrderController</servlet-name>
+    <servlet-class>servlet.CheckOrderController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOrderController</servlet-name>
+    <url-pattern>/CheckOrderController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowCartController</servlet-name>
+    <servlet-class>servlet.ShowCartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCartController</servlet-name>
+    <url-pattern>/ShowCartController</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ShowCatControllerForCat</servlet-name>
     <servlet-class>servlet.ShowCatControllerForCat</servlet-class>
   </servlet>

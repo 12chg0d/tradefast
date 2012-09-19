@@ -1,4 +1,7 @@
 package bean;
+
+import java.util.LinkedHashMap;
+
 /**
  *This bean is created for throwing the data about the user which can be used in many classes.
  */
@@ -17,13 +20,14 @@ public class UserBean {
 	  `registration_date` date NOT NULL,
 	  `status` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 	 */
+	private String mID;
  	private String Fname;
 	private String Lname;
 	private String address;
 	private String email;
 	private String tel_no;
 	private String username;
-
+	
 	//Getter and Setter for each field.
 	public String getFname() {
 		return Fname;
@@ -60,5 +64,11 @@ public class UserBean {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getmID() {
+		return mID;
+	}
+	public void setmID(String mID) {
+		this.mID = mID;
 	}
 }

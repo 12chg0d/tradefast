@@ -61,6 +61,7 @@ public class LoginController extends HttpServlet{
 					int count=0;
 					//This while loop is used to set the parameters in user bean.
 					while(rs.next()) {
+						if(rs.getString(1) != null) ub.setmID(rs.getString(1));
 						if(rs.getString(2) != null) ub.setFname(rs.getString(2));
 						if(rs.getString(3) != null) ub.setLname(rs.getString(3));
 						if(rs.getString(4) != null) ub.setUsername(rs.getString(4));
@@ -94,6 +95,7 @@ public class LoginController extends HttpServlet{
 				}
 				//System.out.println("Connected to the database"); //For checking
 				//Don't forget to the connection.
+				rs.close();
 				conn.close();
 				//System.out.println("Disconnected from database"); //For checking
 			} catch (Exception e) {

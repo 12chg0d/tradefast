@@ -48,7 +48,6 @@ public class RegistrationController extends HttpServlet{
 			 */
 			String Fname = request.getParameter("Fname");
 			String Lname = request.getParameter("Lname");
-			System.out.println(Lname);
 			String sex = request.getParameter("sex");
 			String birthdate = request.getParameter("birthdate");
 			String address = request.getParameter("address");
@@ -61,6 +60,7 @@ public class RegistrationController extends HttpServlet{
 			ResultSet rs=null;
 			String strQuery=null;
 			int c = 0;
+			String mID = "0000000000";
 			try {
 				//Setting the connection in database by using prepared statement.
 				Class.forName("org.gjt.mm.mysql.Driver");
@@ -81,7 +81,6 @@ public class RegistrationController extends HttpServlet{
 					st = conn.createStatement();
 					rs = st.executeQuery(strQuery);
 					//This while loop is used to set the parameters in user bean.
-					String mID = "0000000000";
 					while(rs.next()) {
 						if(rs.getString(1) != null) mID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
 					}
@@ -121,9 +120,11 @@ public class RegistrationController extends HttpServlet{
 				try {
 					//Don't forget to close your connection.
 					if (conn != null) conn.close();
+					rs.close();
 					if(c == 0) {
 						//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 						UserBean ub = new UserBean();
+						ub.setmID(mID);
 						ub.setAddress(address);
 						ub.setEmail(email);
 						ub.setFname(Fname);

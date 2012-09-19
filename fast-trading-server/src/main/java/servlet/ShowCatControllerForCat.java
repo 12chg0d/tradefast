@@ -57,6 +57,7 @@ public class ShowCatControllerForCat extends HttpServlet{
 					str = new String[2];
 					count++;
 				}
+				rs.close();
 				scb.setArr(arr);
 				if(count>0){
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.

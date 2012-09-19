@@ -58,6 +58,7 @@ public class SearchController extends HttpServlet{
 					count++;
 				}
 				sb.setArr(arr);
+				rs.close();
 				if(count>0){
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					session.setAttribute("searchResult", sb);

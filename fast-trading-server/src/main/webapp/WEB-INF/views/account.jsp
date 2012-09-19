@@ -70,6 +70,13 @@
     		 </div>
 		</form>
 	<%
+		} else {
+	%>
+		<div id="errorMsg">
+	        <h4>Please Log in to the system!</h4>
+	     </div>
+		
+	<%
 		}
 	%>
     <div id="footer">
