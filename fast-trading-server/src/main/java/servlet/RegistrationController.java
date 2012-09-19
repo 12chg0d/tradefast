@@ -77,12 +77,13 @@ public class RegistrationController extends HttpServlet{
 					c++;
 				}
 				if(c == 0) {
-					strQuery = "select max(mID) from member";
+					strQuery = "select mID from member order by cast(mID as signed) desc";;
 					st = conn.createStatement();
 					rs = st.executeQuery(strQuery);
 					//This while loop is used to set the parameters in user bean.
 					while(rs.next()) {
 						if(rs.getString(1) != null) mID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
+						break;
 					}
 					DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 					Date date = new Date();

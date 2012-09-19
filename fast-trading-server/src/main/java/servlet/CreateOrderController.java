@@ -60,13 +60,14 @@ public class CreateOrderController extends HttpServlet{
 				int sum_point = cOrB.getSum_point();
 				int sum_money = cOrB.getSum_money();
 				int item_amount = cOrB.getItem_amount();
-				strQuery = "select max(oID) from order_record";
+				strQuery = "select oID from order_record order by cast(oID as signed) desc";
 				String oID = "0000000000";
 				String address = ub.getAddress();
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
 				while(rs.next()) {
 					if(rs.getString(1) != null) oID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
+					break;
 				}
 				rs.close();
 				ResultSet rs2;
