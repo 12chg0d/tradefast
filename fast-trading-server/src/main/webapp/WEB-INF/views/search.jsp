@@ -92,8 +92,9 @@
 	    </colgroup>
 	    <thead>
 	    	<tr>
-				<th scope="col">ID</th>        	
-				<th scope="col">Name</th>
+	    		<th scope="col">Picture</th>
+				<th scope="col">Name</th>        	
+				<th scope="col">Description</th>
 	        </tr>
 	    </thead>
 	<%
@@ -104,8 +105,10 @@
 	<%
 					str = arr.get(i);
 	%>
-	        	<td><%=str[0] %></td>
 	        	<td><%=str[1] %></td>
+	        	<%String temp = "ShowItemController?iID="+str[0]; %>
+	        	<td><a href=<%=temp%>><%=str[2] %></a></td>
+	        	<td><%=str[3] %><td>
 	<%				
 					}
 	%>

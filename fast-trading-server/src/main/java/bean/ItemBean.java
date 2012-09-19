@@ -1,6 +1,7 @@
 package bean;
 
 public class ItemBean {
+	private String iID;
 	private String Iname;
 	private String description;
 	private String price_money_only;
@@ -56,5 +57,11 @@ public class ItemBean {
 	}
 	public void setPrice_money_couple(String price_money_couple) {
 		this.price_money_couple = price_money_couple;
+	}
+	public String getiID() {
+		return iID;
+	}
+	public void setiID(String iID) {
+		this.iID = iID;
 	}
 }

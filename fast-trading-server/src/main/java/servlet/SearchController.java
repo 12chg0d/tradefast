@@ -41,20 +41,21 @@ public class SearchController extends HttpServlet{
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
 				//Getting the parameters from login page.
 				//Actually, this condition is done by using JQuery.
-				strQuery="select * from item where Iname like \'%" + search + "%\'";
+				strQuery="select iID, picture, Iname, description  from item where Iname like \'%" + search + "%\'";
 				//JDBC methods!
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
 				ArrayList<String[]> arr = new ArrayList<String[]>();
-				String[] str = new String[2];;
+				String[] str = new String[4];
 				int count=0;
 				//This while loop is used to set the parameters.
 				while(rs.next()) {
 					str[0] = rs.getString(1);
 					str[1] = rs.getString(2);
-					
+					str[2] = rs.getString(3);
+					str[3] = rs.getString(4);
 					arr.add(str);
-					str = new String[2];
+					str = new String[4];
 					count++;
 				}
 				sb.setArr(arr);

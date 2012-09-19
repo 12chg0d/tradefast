@@ -27,30 +27,39 @@
   	<div id="header_wrapper">
   		<img id="logo" src="resources/img/logo_icon.png"/>
   		<ul>
-  			<li><a href="welcome">HOME</a></li>
-  			<li><a href="TableController">CATALOG</a></li>
-  			<li><a href="search">FAQ</a></li>
-  			<li><a href="ShowCatController"></a>Add Item</li>
+  			<li><a href="HomeController">HOME</a></li>
+  			<li><a href="ShowCatControllerForCat">CATALOG</a></li>
+  			<li><a href="faq">FAQ</a></li>
   		</ul>
-  	
   		
   		<div id="right_menu">
-  			<a href="account"><img src="resources/img/account_icon.png" height = "50"/></a>
-  			<a href="cart"><img src="resources/img/cart_icon.png" height = "50"/></a>
-  		<%
+  			<a href="ShowOrderController"><img src="resources/img/account_icon.png" height = "50"/></a>
+  			<a href="ShowCartController"><img src="resources/img/cart_icon.png" height = "50"/></a>
+  			<%
   			UserBean ub = (UserBean)session.getAttribute("user");
   			if(ub != null) {
   			%>
-  				<a href="LogoutController"><img src="resources/img/login_icon02.png" height = "50"/></a>
+  				<a href="LogoutController"><img src="resources/img/logout_icon.png" height = "50"/></a>
   			<% } 
 			else if(ub == null) { %>
 				<a href="login"><img src="resources/img/login_icon.png" height = "50"/></a>
-  			<% } %></div>
+  			<% } %>	 		
+  		</div>
   		
+  		
+  		<div id="search_box">
+		  		<!-- It will receive the username and password here and then send it to loginbean -->
+		    <form class="search_form" action="SearchController" method="post">    
+		          <label for="">Search</label>
+		          <input name="itemName" id="itemName" data-default-value="Item Name" size="20" maxlength="100" type="text" class="textInput required"/>
+				  <input type="image" src="resources/img/search_icon.png" class="primaryAction" width="20"></input>
+		    </form>
+		</div>
+  		
+ 	
   	</div>
-  	
-	<!--end of header -->
- 	<%
+  	<!--end of header -->
+  	<%
  		ItemBean ib = (ItemBean)session.getAttribute("ib");
 		if(ib != null) {
 	%>
@@ -58,18 +67,16 @@
 			<div class="header">
 				<img alt="Item pic" src=<%=ib.getPicture()%>>
 				<%System.out.println(ib.getPicture()); %>
-        		<h3>Item Name :<b><%= ib.getIname()%>!!!</b></h3>
-        		<h3>Cart Name :<b><%= ib.getCat()%>!!!</b></h3>
-        		<h3>Description : <b><%= ib.getDescription()%>!!!</b></h3>
-        		<h3>Price Money Only : <b><%= ib.getPrice_money_only()%>!!!</b></h3>
-        		<h3>Price Point Only : <b><%= ib.getPrice_point_only()%>!!!</b></h3>
-        		<h3>Price Money Couple : <b><%= ib.getPrice_money_couple()%>!!!</b></h3>
-        		<h3>Price Point Couple : <b><%= ib.getPrice_point_couple()%>!!!</b></h3>
+        		<h3>Item Name :<b><%= ib.getIname()%></b></h3>
+        		<h3>Cart Name :<b><%= ib.getCat()%></b></h3>
+        		<h3>Description : <b><%= ib.getDescription()%></b></h3>
+        		<h3>Price Money Only : <b><%= ib.getPrice_money_only()%></b></h3>
+        		<h3>Price Point Only : <b><%= ib.getPrice_point_only()%></b></h3>
+        		<h3>Price Money Couple : <b><%= ib.getPrice_money_couple()%></b></h3>
+        		<h3>Price Point Couple : <b><%= ib.getPrice_point_couple()%></b></h3>
+        		<%String temp = "AddToCartController?iID="+ib.getiID(); %>
+      			<h3><a href=<%=temp %>>Add to Cart</a></h3>
       		</div>
-      		<div id="okMsg">
-        		<p>
-         			Congratulation!!! </p>
-    		 </div>
 		</form>
 	<%
 		}

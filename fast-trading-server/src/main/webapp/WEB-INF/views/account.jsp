@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="servlet.*" %>
 <%@ page import="bean.*" %>
+<%@ page import="java.util.ArrayList" %>
 <!doctype html>
 <html lang="en-us" dir="ltr">
   <head>
@@ -64,11 +65,66 @@
         		<h3>Mobile Phone : <b><%= ub.getTel_no()%>!!!</b></h3>
         		<h3>E-mail : <b><%= ub.getEmail()%>!!!</b></h3>
       		</div>
-      		<div id="okMsg">
-        		<p>
-         			Congratulation!!! </p>
-    		 </div>
-		</form>
+      				<%
+	ShowOrderBean sob = (ShowOrderBean)session.getAttribute("sob");
+	if(sob != null) {
+		ArrayList<String[]> arr = sob.getArr();	
+		int size = arr.size();
+		String[] str = new String[8];
+		if(arr != null && size > 0) {
+				
+	%>
+	<div class="center">
+	<table id="newspaper-a" summary="test-table">
+	   <colgroup>
+	    	<col class="oce-first" />
+	    </colgroup>
+	    <thead>
+	    	<tr>
+	        	<th scope="col" align= "center" >Your Order</th>
+	        </tr>
+	    </thead>
+	    </table>
+	    
+	    <table id="newspaper-a" summary="test-table">
+	   <colgroup>
+	    	<col class="oce-first" />
+	    </colgroup>
+	    <thead>
+	    	<tr>
+	    		<th scope="col">Order ID</th>
+	    		<th scope="col">Sum Money</th>
+	    		<th scope="col">Sum Point</th>
+	    		<th scope="col">Item Amount</th>
+				<th scope="col">Order Date</th>
+				<th scope="col">Payment Status</th>
+				<th scope="col">Packing Status</th>
+	        </tr>
+	    </thead>
+	<%
+				for(int i = 0; i < size; i++) {
+	%>
+		<tbody>
+	    	<tr>
+	<%
+					str = arr.get(i);
+				for(int j = 0; j < 7; j++) {
+					
+	%>
+	        	<td><%=str[j] %></td>
+	<%				
+					}
+				}
+	%>
+	        </tr>
+	    </tbody>
+	    </table>
+	    </div>
+	<%
+		}
+	}			
+     %> 		
+      	</form>
 	<%
 		} else {
 	%>
