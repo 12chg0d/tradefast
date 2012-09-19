@@ -126,6 +126,7 @@
 				<th scope="col">Money Only</th>
 				<th scope="col">Point Only</th>
 				<th scope="col">Point/Money<th>
+				<th scope="col">Delete<th>
 	        </tr>
 	    </thead>
 	<%
@@ -171,6 +172,10 @@
 	        		<p class="formHint"></p>
 	       </div>
 	        	</td>
+	        <td> 
+	        	<% String temp = "DeleteCartController?iID="+str[0]; //+"&idx="+i;%>
+	        	<a href=<%=temp %>>Delete</a>
+	        </td>
 	<%				
 					}
 	%>

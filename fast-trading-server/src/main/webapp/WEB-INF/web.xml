@@ -61,6 +61,14 @@
     <url-pattern>/ShowCartController</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>DeleteCartController</servlet-name>
+    <servlet-class>servlet.DeleteCartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCartController</servlet-name>
+    <url-pattern>/DeleteCartController</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ShowItemController</servlet-name>
     <servlet-class>servlet.ShowItemController</servlet-class>
   </servlet>

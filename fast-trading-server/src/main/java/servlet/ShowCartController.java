@@ -74,11 +74,13 @@ public class ShowCartController extends HttpServlet{
 					count++;
 				}
 				cartB.setArr(arr);
+				System.out.println("count" + count);
 				if(count>0){
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					session.setAttribute("cartB", cartB);
 					response.sendRedirect("cart");
 				} else {
+					session.setAttribute("cartB", null);
 					String haveCart = "no";
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
 					session.setAttribute("haveCart", haveCart);
