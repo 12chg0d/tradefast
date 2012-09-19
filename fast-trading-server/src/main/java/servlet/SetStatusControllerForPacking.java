@@ -56,7 +56,7 @@ public class SetStatusControllerForPacking extends HttpServlet{
 					//Don't forget to close your connection.
 					if (conn != null) conn.close();
 					//In case you don't care about the URL and throwing object, you can use RequestDispatcher. It is better performance than using sendRedirect.
-					response.sendRedirect("TableController");
+					response.sendRedirect("TableControllerForPacking");
 					
 				}
 				catch (SQLException ignored){

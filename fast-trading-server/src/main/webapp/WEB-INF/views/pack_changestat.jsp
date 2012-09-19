@@ -103,7 +103,7 @@ if(tb != null) {
 <%
 			}//have just fixed
 	}
-	session.setAttribute("table", null);
+	session.setAttribute("tableForPacking", null);
 %>
 	<div class="buttonHolder">
 		<button type="submit" class="primaryAction">OK</button>

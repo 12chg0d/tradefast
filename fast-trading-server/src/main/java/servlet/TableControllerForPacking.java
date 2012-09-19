@@ -42,7 +42,7 @@ public class TableControllerForPacking extends HttpServlet{
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
 				//Getting the parameters from login page.
 				//Actually, this condition is done by using JQuery.
-				strQuery="select * from order_record where packing_status=\'wait\'";
+				strQuery="select * from order_record where packing_status=\'wait\' order by date desc";
 				//JDBC methods!
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);

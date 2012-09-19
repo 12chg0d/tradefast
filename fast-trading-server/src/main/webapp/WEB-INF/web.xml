@@ -94,16 +94,16 @@
     <url-pattern>/TableController</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>TableController</servlet-name>
-    <servlet-class>servlet.TableController</servlet-class>
+    <servlet-name>TableControllerForPacking</servlet-name>
+    <servlet-class>servlet.TableControllerForPacking</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>TableControllerForPacking</servlet-name>
     <url-pattern>/TableControllerForPacking</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>AddToCartControllerForPacking</servlet-name>
-    <servlet-class>servlet.AddToCartControllerForPacking</servlet-class>
+    <servlet-name>AddToCartController</servlet-name>
+    <servlet-class>servlet.AddToCartController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddToCartController</servlet-name>
