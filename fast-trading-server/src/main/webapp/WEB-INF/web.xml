@@ -37,6 +37,14 @@
     <url-pattern>/CheckOrderController</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CreateOrderController</servlet-name>
+    <servlet-class>servlet.CreateOrderController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateOrderController</servlet-name>
+    <url-pattern>/CreateOrderController</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ShowCartController</servlet-name>
     <servlet-class>servlet.ShowCartController</servlet-class>
   </servlet>

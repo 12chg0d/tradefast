@@ -61,7 +61,7 @@ public class CheckOrderController extends HttpServlet{
 					temp1 = Integer.parseInt(request.getParameter(str[0]+"1"));
 					temp2 = Integer.parseInt(request.getParameter(str[0]+"2"));
 					temp3 = Integer.parseInt(request.getParameter(str[0]+"3"));
-					sum_point += temp1*mul_money + temp3*mul_money_couple;
+					sum_money += temp1*mul_money + temp3*mul_money_couple;
 					sum_point += temp2*mul_point + temp3*mul_point_couple;
 					memName[i] = str[3];
 					if(sum != temp1+temp2 + temp3) err.add("Please fill the corresponding numbers in item named "+str[3]);

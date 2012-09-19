@@ -151,7 +151,7 @@
 	        	
         	<div class="ctrlHolder">
         			<label><%=str[4] %></label>
-	        		<%String s = "textInput required validateInteger validateMin val-0";%>	        		%>
+	        		<%String s = "textInput required validateInteger validateMin val-0";%>	     
 	        		<input name="<%=n + "1" %>" id="<%=n + "1" %>" type = "text" size="10" data-default-value="0" class="<%=s %>" />
 	        		<p class="formHint"></p>
 	       </div>
