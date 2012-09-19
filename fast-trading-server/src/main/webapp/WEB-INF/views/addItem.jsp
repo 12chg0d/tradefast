@@ -128,34 +128,35 @@
 	        	<textarea name="description" id="description" data-default-value="Description" rows="50" cols="25" class="textInput"></textarea> 
 	        <p class="formHint"></p>
 		</div>
+		<th>
 		<div class="ctrlHolder">
 	    	<label for=""><em>*</em> Price Money Only</label>
-	        	<input name="price_money_only" id="price_money_only" data-default-value="Price Money Only" size="35" maxlength="50" type="text" class="textInput required"/>
+	        	<input name="price_money_only" id="price_money_only" data-default-value="Price Money Only" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-0"/>
 			<p class="formHint"></p>
 		</div>
 		<div class="ctrlHolder">
 	    	<label for=""><em>*</em> Price Point Only</label>
-	        	<input name="price_point_only" id="price_point_only" data-default-value="Price Point Only" size="35" maxlength="50" type="text" class="textInput required"/>
+	        	<input name="price_point_only" id="price_point_only" data-default-value="Price Point Only" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-0"/>
 			<p class="formHint"></p>
 		</div>
 		<div class="ctrlHolder">
 	    	<label for=""><em>*</em> Price Money Couple</label>
-	        	<input name="price_money_couple" id="price_money_couple" data-default-value="Price Money Couple" size="35" maxlength="50" type="text" class="textInput required"/>
+	        	<input name="price_money_couple" id="price_money_couple" data-default-value="Price Money Couple" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-0"/>
 			<p class="formHint"></p>
 		</div>
 		<div class="ctrlHolder">
 	    	<label for=""><em>*</em> Price Point Couple</label>
-	        	<input name="price_point_couple" id="price_point_couple" data-default-value="Price Point Couple" size="35" maxlength="50" type="text" class="textInput required"/>
+	        	<input name="price_point_couple" id="price_point_couple" data-default-value="Price Point Couple" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-0"/>
 			<p class="formHint"></p>
 		</div>
 		<div class="ctrlHolder">
 	    	<label for=""><em>*</em> Remaining Number</label>
-	        	<input name="remaining_number" id="remaining_number" data-default-value="Remaining Number" size="10" maxlength="50" type="text" class="textInput required"/>
+	        	<input name="remaining_numbers" id="remaining_numbers" data-default-value="Remaining Number" size="10" maxlength="50" type="text" class="textInput required validateInteger validateMin val-0"/>
 			<p class="formHint"></p>
 		</div>
 		<div class="ctrlHolder">
 	    	<label for=""><em>*</em>  Minimum Number</label>
-	        	<input name= "minimum_numbers" id=" minimum_numbers" data-default-value=" Minimum Number" size="10" maxlength="50" type="text" class="textInput required"/>
+	        	<input name= "minimum_numbers" id=" minimum_numbers" data-default-value=" Minimum Number" size="10" maxlength="50" type="text" class="textInput required validateInteger validateMin val-0"/>
 			<p class="formHint"></p>
 		</div>
         

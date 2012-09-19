@@ -49,7 +49,7 @@ public class AddItemController extends HttpServlet{
 			String price_point_only = request.getParameter("price_point_only");
 			String price_point_couple = request.getParameter("price_point_couple");
 			String price_money_couple = request.getParameter("price_money_couple");
-			String remaining_number = request.getParameter("remaining_number");
+			String remaining_number = request.getParameter("remaining_numbers");
 			String minimum_numbers = request.getParameter("minimum_numbers");
 			String catID = request.getParameter("catID");
 			String cat=null;
@@ -75,20 +75,21 @@ public class AddItemController extends HttpServlet{
 					c++;
 				}
 				if(c == 0) {
-					strQuery = "select max(iID) from item";
+					String iID = "0000000000";
+					strQuery = "select iID from item order by cast(iID as signed)";
 					st = conn.createStatement();
 					rs = st.executeQuery(strQuery);
 					//This while loop is used to set the parameters in user bean.
-					String iID = "0000000000";
 					while(rs.next()) {
 						if(rs.getString(1) != null) iID = Integer.toString(Integer.parseInt(rs.getString(1)) + 1);
+						break;
 					}
-					strQuery = "select Catname from category where cID = /'"+catID+"/'";
+					strQuery = "select Catname from category where cID = \'"+catID+"\'";
 					rs = st.executeQuery(strQuery);
 					while(rs.next()) {
 						if(rs.getString(1) != null) cat =rs.getString(1);
 					}
-					String sql = "insert into item values (?,?,?,?,?,?,?,?,?,?,?)";
+					String sql = "insert into item values (?,?,?,?,?,?,?,?,?,?,?, ?)";
 					PreparedStatement pst = conn.prepareStatement(sql);
 					//Using preparedstatement by set the parameter related to "?" symbol.
 					
@@ -101,8 +102,9 @@ public class AddItemController extends HttpServlet{
 					pst.setInt(7,Integer.parseInt(price_money_couple));
 					pst.setInt(8,Integer.parseInt(remaining_number));
 					pst.setInt(9,Integer.parseInt(minimum_numbers));
-					pst.setString(10, catID);
+					pst.setString(10, cat);
 					pst.setString(11, picture);
+					pst.setInt(12,0);
 					pst.executeUpdate();
 					pst.close();
 				}

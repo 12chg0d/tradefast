@@ -43,8 +43,8 @@ public class ShowItemController extends HttpServlet{
 					ib.setPrice_point_only(rs.getString(5));
 					ib.setPrice_point_couple(rs.getString(6));
 					ib.setPrice_money_only(rs.getString(7));
-					ib.setCat(rs.getString(7));
-					ib.setPicture(rs.getString(8));
+					ib.setCat(rs.getString(8));
+					ib.setPicture(rs.getString(9));
 				}
 				session.setAttribute("ib", ib);
 				response.sendRedirect("itemDesc");
