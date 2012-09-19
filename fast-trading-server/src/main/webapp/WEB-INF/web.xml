@@ -94,8 +94,16 @@
     <url-pattern>/TableController</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>AddToCartController</servlet-name>
-    <servlet-class>servlet.AddToCartController</servlet-class>
+    <servlet-name>TableController</servlet-name>
+    <servlet-class>servlet.TableController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TableControllerForPacking</servlet-name>
+    <url-pattern>/TableControllerForPacking</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddToCartControllerForPacking</servlet-name>
+    <servlet-class>servlet.AddToCartControllerForPacking</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddToCartController</servlet-name>
@@ -109,7 +117,14 @@
     <servlet-name>SetStatusController</servlet-name>
     <url-pattern>/SetStatusController</url-pattern>
   </servlet-mapping>
-
+<servlet>
+    <servlet-name>SetStatusControllerForPacking</servlet-name>
+    <servlet-class>servlet.SetStatusControllerForPacking</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetStatusControllerForPacking</servlet-name>
+    <url-pattern>/SetStatusControllerForPacking</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>LogoutController</servlet-name>
     <servlet-class>servlet.LogoutController</servlet-class>

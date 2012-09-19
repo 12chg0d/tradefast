@@ -2,12 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="bean.*" %>
+<
 <%@ page import="java.util.ArrayList" %><!-- Test -->
 <!doctype html>
 <html lang="th" dir="ltr">
   <head>
   <meta charset="utf-8">
-    <title>Manager</title>
+    <title>Packing</title>
 	<link href="resources/css/uni-form.css" media="screen" rel="stylesheet"/>
 	<link href="resources/css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
 	<link href="resources/css/demo.css" media="screen" rel="stylesheet"/>
@@ -35,12 +36,13 @@
 
 	
 	<!-- It will receive the username and password here and then send it to loginbean -->    
-<form action="SetStatusController" class="uniForm" method="post">
+<form action="SetStatusControllerForPacking" class="uniForm" method="post">
 <%
+TableBean tb = (TableBean)session.getAttribute("tableForPacking");
 if(tb != null) {
 	ArrayList<String[]> arr = tb.getArr();	
 	int size = arr.size();
-	String[] str = new String[2];
+	String[] str = new String[9];
 	if(arr != null && size > 0) {
 			
 %>
@@ -69,8 +71,8 @@ if(tb != null) {
 			<th scope="col">Date</th>        	
 			<th scope="col">Member ID</th>  
 			<th scope="col">Address</th>        	       	
-			<th scope="col">Packing Status</th>  
-			<th scope="col">Set Payment Status</th>               				
+			<th scope="col">Payment Status</th>  
+			<th scope="col">Set Packing Status</th>               				
         </tr>
     </thead>
 <%
@@ -90,7 +92,7 @@ if(tb != null) {
         	<td><%=str[4] %></td>
         	<td><%=str[7] %></td>
         	<!-- <td><a href="login"><%=str[1] %></a></td> -->
-        	<td><input type="checkbox" name="setStatus" value=<%=str[0] %> />
+        	<td><input type="checkbox" name="setStatusForPacking" value=<%=str[0] %> />
 <%				
 				}
 %>

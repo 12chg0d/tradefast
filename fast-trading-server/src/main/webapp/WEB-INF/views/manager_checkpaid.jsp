@@ -39,6 +39,7 @@
   			
   			<%
   			UserBean ub = (UserBean)session.getAttribute("user");
+  			
   			TableBean tb = (TableBean)session.getAttribute("table");
   			if(ub != null) {
   			%>
@@ -60,7 +61,7 @@
 if(tb != null) {
 	ArrayList<String[]> arr = tb.getArr();	
 	int size = arr.size();
-	String[] str = new String[2];
+	String[] str = new String[9];
 	if(arr != null && size > 0) {
 			
 %>

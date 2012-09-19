@@ -5,7 +5,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import bean.CartBean;
-import bean.ShowCatBean;
 import bean.UserBean;
 
 //import javax.sql.*;
