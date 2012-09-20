@@ -76,6 +76,23 @@
     <servlet-name>ShowItemController</servlet-name>
     <url-pattern>/ShowItemController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>EditItemController</servlet-name>
+    <servlet-class>servlet.EditItemController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditItemController</servlet-name>
+    <url-pattern>/EditItemController</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ShowItemControllerForEditing</servlet-name>
+    <servlet-class>servlet.ShowItemControllerForEditing</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowItemControllerForEditing</servlet-name>
+    <url-pattern>/ShowItemControllerForEditing</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>ShowCatControllerForCat</servlet-name>

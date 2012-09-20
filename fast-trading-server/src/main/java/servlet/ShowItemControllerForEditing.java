@@ -2,14 +2,16 @@ package servlet;
 
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import bean.EditItemBean;
 import bean.ItemBean;
 
-public class ShowItemController extends HttpServlet{
+public class ShowItemControllerForEditing extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -18,8 +20,7 @@ public class ShowItemController extends HttpServlet{
 			HttpSession session = request.getSession(true);
 			response.setContentType("text/html");
 			request.setCharacterEncoding("UTF-8");
-			String iID = (String)request.getParameter("iID");
-			ItemBean ib = new ItemBean();
+			EditItemBean eib = new EditItemBean();
 			Connection conn = null;
 			Statement st=null;
 			//ResultSet
@@ -31,22 +32,22 @@ public class ShowItemController extends HttpServlet{
 				conn = DriverManager
 						.getConnection("jdbc:mysql://localhost/user_register?"
 								+ "user=sqluser&password=sqluserpw&useUnicode=true&characterEncoding=UTF-8");
-				strQuery="select iID,Iname,description,price_money_only,price_point_only,price_point_couple,price_money_couple,catID,picture from item where iID=\'"+iID+"\'";
+				strQuery="select iID, Iname, remaining_numbers, minimum_numbers  from item";
 				//JDBC methods!
+				ArrayList<String[]> arr = new ArrayList<String[]>();
+				String[] str = new String[4];
 				st = conn.createStatement();
 				rs = st.executeQuery(strQuery);
 				while(rs.next()) {
-					ib.setiID(rs.getString(1));
-					ib.setIname(rs.getString(2));
-					ib.setDescription(rs.getString(3));
-					ib.setPrice_money_only(rs.getString(4));
-					ib.setPrice_point_only(rs.getString(5));
-					ib.setPrice_point_couple(rs.getString(6));
-					ib.setPrice_money_only(rs.getString(7));
-					ib.setCat(rs.getString(8));
-					ib.setPicture(rs.getString(9));
+					str[0] = rs.getString(1);
+					str[1] = rs.getString(2);
+					str[2] = rs.getString(3);
+					str[3] = rs.getString(4);
+					arr.add(str);
+					str = new String[4];
 				}
-				session.setAttribute("ib", ib);
+				eib.setArr(arr);
+				session.setAttribute("eib", eib);
 				response.sendRedirect("EditItem");
 			}catch (Exception e) {
 				e.printStackTrace();
